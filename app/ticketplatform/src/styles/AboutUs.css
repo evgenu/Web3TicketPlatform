@@ -1,0 +1,152 @@
+.about-container {
+	text-align: center;
+	padding: 50px;
+	background-color: #f9f9f9;
+  }
+  
+  /* Heading */
+  .about-container h1 {
+	font-size: 2.5em;
+	color: #333;
+  }
+  
+  /* Paragraph */
+  .about-container p {
+	font-size: 1.2em;
+	color: #666;
+	margin-bottom: 30px;
+  }
+  
+  /* Team section */
+  .team {
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+  }
+  
+  /* Team Member Card */
+  .team-member {
+	background: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	width: 200px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Hover effect for Team Member Card */
+  .team-member:hover {
+	transform: translateY(-10px); /* Moves the card up slightly */
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increases shadow */
+  }
+  
+  /* Team Member Image */
+  .team-member img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	margin-bottom: 10px;
+	transition: transform 0.3s ease;
+  }
+  
+  /* Hover effect for Image */
+  .team-member:hover img {
+	transform: scale(1.1); /* Slightly enlarges the image */
+  }
+  
+  /* Team Member Name */
+  .team-member h3 {
+	font-size: 1.3em;
+	color: #333;
+	transition: color 0.3s ease;
+  }
+  
+  /* Hover effect for Name */
+  .team-member:hover h3 {
+	color: #007bff; /* Changes name color to blue */
+  }
+  
+  /* Team Member Role */
+  .team-member p {
+	font-size: 1em;
+	color: #777;
+  }
+  
+ /* //////////////////////////////////////////////////////////////////////////////////////////// */
+
+ /* General Page Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #2c3e50;
+}
+
+/* Main Container */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Paragraphs */
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Lists */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background: #ecf0f1;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+ul li:hover {
+    background: #d5dbdb;
+}
+
+/* Highlighted Text */
+strong {
+    color: #1a73e8;
+}
+
+/* Call-to-Action Button */
+.cta {
+    display: block;
+    width: 200px;
+    text-align: center;
+    background: #1a73e8;
+    color: white;
+    font-size: 1.2em;
+    padding: 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 30px auto;
+    transition: 0.3s;
+}
+
+.cta:hover {
+    background: #155bb5;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.1em;
+    color: #555;
+}
