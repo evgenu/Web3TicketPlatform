@@ -59,7 +59,7 @@ function AboutUs() {
 
         <h2>Why Choose Us?</h2>
         <ul className={aboutStyles.ul}>
-          <li className={aboutStyles['ul__li']}><strong>Decentralzed & Trustless:</strong> No third parties—your tickets are securely stored and verifiable on the blockchain.</li>
+          <li className={aboutStyles['ul__li']}><strong>Decentralized & Trustless:</strong> No third parties—your tickets are securely stored and verifiable on the blockchain.</li>
           <li className={aboutStyles['ul__li']}><strong>Scalping & Fraud Prevention:</strong> Blockchain authentication ensures tickets cannot be counterfeited or resold unfairly.</li>
           <li className={aboutStyles['ul__li']}><strong>Smart Contract Efficiency:</strong> Automate processes like refunds and ticket transfers with pre-defined rules.</li>
           <li className={aboutStyles['ul__li']}><strong>Community-Driven Development:</strong> Built by engineers who believe in Web3’s potential to transform industries.</li>
