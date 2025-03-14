@@ -1,0 +1,94 @@
+/* .strong-heading{
+	color: hsl(217, 91%, 60%)
+} */
+
+.footer-container {
+	text-align: center;
+	padding: 50px;
+	background-color: hsl(217, 91%, 60%);
+}
+
+.footer-components{
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	/* justify-content: center; Centers items horizontally */
+    /* align-items: center; Aligns items vertically */
+}
+
+.card-footer {
+	background: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	width: 200px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+	/* display: flex; */
+    flex-direction: column;
+    align-items: center; /* Centers horizontally */
+    justify-content: center; /* Centers vertically */
+    height: 100%; /* Ensures full height for proper centering */
+  }
+
+.card-footer h3 {
+	font-size: 1.3em;
+	color: hsl(217, 91%, 60%);
+	transition: color 0.3s ease;
+}
+
+.card-footer p {
+	font-size: 1em;
+	color: #777;
+}
+
+.card-footer img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	margin-bottom: 1px;
+	transition: transform 0.3s ease;
+}
+
+.footer-list {
+    background: none;
+	margin: 5px 0; /* Reduce spacing between list items */
+    padding: 5px 0; /* Minimize internal padding */
+}
+
+.footer-list:hover {
+    background: none;
+}
+
+
+.footer-links {
+    font-size: 16px;
+    color: #777;
+    text-decoration: none;
+    font-weight: 700;
+
+}
+
+.footer-links:hover {
+    color: hsl(217, 91%, 60%);
+}
+
+.copy-text {
+    cursor: pointer;
+    color: #777;
+    text-decoration: underline;
+}
+
+.copy-text:hover {
+    color: hsl(217, 91%, 60%);
+}
+
+.footer-copyright {
+    text-align: center;
+    padding: 10px;
+    color: white;
+    font-size: 0.9rem;
+    margin-top: 20px;
+    width: 100%;
+}
