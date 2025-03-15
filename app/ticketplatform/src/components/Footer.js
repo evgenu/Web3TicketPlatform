@@ -25,10 +25,11 @@ const Footer = () => {
 
 					<div className={footerStyles['card-footer']}>
 						<img src={logo} 
-									className={footerStyles['company-info__img']}
+									className={footerStyles['company-info-img']}
 									alt="Company Image" />
-						<h3 className={footerStyles["card-footer__h3"]}>NFT.bg</h3>
-						<p className={footerStyles["card-footer__p"]}>Our NFT-based ticket platform revolutionizes event access by providing secure,
+						<h3 className={footerStyles["card-footer-h3"]}>TicketChain</h3>
+						<hr className={footerStyles["hor-line"]}></hr>
+						<p className={footerStyles["card-footer-p"]}>Our NFT-based ticket platform revolutionizes event access by providing secure,
 							verifiable, and tradeable digital tickets on the blockchain, eliminating fraud and scalping.
 						</p>
 					</div>
@@ -36,30 +37,31 @@ const Footer = () => {
 					{/* Browse section */}
 
 					<div className={footerStyles['card-footer']}>
-						<h3 className={footerStyles['card-footer__h3']}>Browse</h3>
+						<h3 className={footerStyles['card-footer-h3']}>Browse</h3>
+						<hr className={footerStyles["hor-line"]}></hr>
 						<ul>
-							<li className={`${footerStyles["footer-list"]} ${footerStyles["footer-list:hover"]}`}>
-								<a className={`${footerStyles["footer-links"]} ${footerStyles["footer-links:hover"]}`} href="/">
+							<li className={footerStyles["footer-list"]}>
+								<a className={footerStyles["footer-links"]} href="/">
 									Home
 								</a>
 							</li>
-							<li className={`${footerStyles["footer-list"]} ${footerStyles["footer-list:hover"]}`}>
-								<a className={`${footerStyles["footer-links"]} ${footerStyles["footer-links:hover"]}`} href="/events">
+							<li className={footerStyles["footer-list"]}>
+								<a className={footerStyles["footer-links"]} href="/events">
 									Events
 								</a>
 							</li>
-							<li className={`${footerStyles["footer-list"]} ${footerStyles["footer-list:hover"]}`}>
-								<a className={`${footerStyles["footer-links"]} ${footerStyles["footer-links:hover"]}`} href="/about">
+							<li className={footerStyles["footer-list"]}>
+								<a className={footerStyles["footer-links"]} href="/about">
 									AboutUs
 								</a>
 							</li>
-							<li className={`${footerStyles["footer-list"]} ${footerStyles["footer-list:hover"]}`}>
-								<a className={`${footerStyles["footer-links"]} ${footerStyles["footer-links:hover"]}`} href="/tickets">
+							<li className={footerStyles["footer-list"]}>
+								<a className={footerStyles["footer-links"]} href="/tickets">
 									My Tickets
 								</a>
 							</li>
-							<li className={`${footerStyles["footer-list"]} ${footerStyles["footer-list:hover"]}`}>
-								<a className={`${footerStyles["footer-links"]} ${footerStyles["footer-links:hover"]}`} href="/wallet">
+							<li className={footerStyles["footer-list"]}>
+								<a className={footerStyles["footer-links"]} href="/wallet">
 									Connect Wallet
 								</a>
 							</li>
@@ -69,36 +71,49 @@ const Footer = () => {
 
 					{/* need to include links for the login and registration pages */}
 					<div className={footerStyles['card-footer']}>
-						<h3 className={footerStyles['card-footer__h3']}>Account</h3>
+						<h3 className={footerStyles['card-footer-h3']}>Account</h3>
+						<hr className={footerStyles["hor-line"]}></hr>
 						<ul>
-							<li className={`${footerStyles["footer-list"]} ${footerStyles["footer-list:hover"]}`}>
-								<a className={`${footerStyles["footer-links"]} ${footerStyles["footer-links:hover"]}`} href="/">
+							<li className={footerStyles["footer-list"]}>
+								<a className={footerStyles["footer-links"]} href="/">
 									Login
 								</a>
 							</li>
-							<li className={`${footerStyles["footer-list"]} ${footerStyles["footer-list:hover"]}`}>
-								<a className={`${footerStyles["footer-links"]} ${footerStyles["footer-links:hover"]}`} href="/events">
+							<li className={footerStyles["footer-list"]}>
+								<a className={footerStyles["footer-links"]} href="/events">
 									Sign up
 								</a>
 							</li>
 						</ul>
+
+						<h3 className={footerStyles['card-footer-h3']}>Other</h3>
+						<hr className={footerStyles["hor-line"]}></hr>
+						<ul>
+							<li className={footerStyles["footer-list"]}>
+								<a className={footerStyles["footer-links"]} href="/">
+									FAQ
+								</a>
+							</li>
+						</ul>
 					</div>
+					
 
 					{/* Contacts section with hypelinks for copying them to the clipboard */}
 
 					<div className={footerStyles["card-footer"]}>
-						<h3 className={footerStyles["card-footer__h3"]}>Contacts</h3>
-						<p className={footerStyles["card-footer__p"]}>Telephone: <br /><span className={footerStyles["copy-text"]}
+						<h3 className={footerStyles["card-footer-h3"]}>Contacts</h3>
+						<hr className={footerStyles["hor-line"]}></hr>
+						<p className={footerStyles["card-footer-p"]}>Telephone: <br /><span className={footerStyles["copy-text"]}
             																					onClick={() => copyToClipboardPhone("+359 8764356789")}>
            																						+359 8764356789
         																			  </span>
 						</p>
-						<p className={footerStyles["card-footer__p"]}>email: <br /><span className={footerStyles["copy-text"]}
+						<p className={footerStyles["card-footer-p"]}>email: <br /><span className={footerStyles["copy-text"]}
             																					onClick={() => copyToClipboardEmail("zazaazaa78@gmail.com")}>
            																						zazaazaa78@gmail.com
         																		   </span> 
 						</p>
-						<p className={footerStyles["card-footer__p"]}>address: <br /> 7 Ulitsa str. 4400</p>
+						<p className={footerStyles["card-footer-p"]}>address: <br /> 7 Ulitsa str. 4400</p>
 					</div>
 				</div>
 
@@ -107,7 +122,6 @@ const Footer = () => {
     			</div>
 			</div>
 		</footer>
-			
 	);
 }
 

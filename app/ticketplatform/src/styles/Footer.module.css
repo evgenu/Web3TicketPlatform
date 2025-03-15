@@ -5,55 +5,63 @@
 .footer-container {
 	text-align: center;
 	padding: 50px;
-	background-color: hsl(217, 91%, 60%);
+	background: #64b5f6;
+
 }
 
 .footer-components{
 	display: flex;
 	justify-content: center;
 	gap: 30px;
-	/* justify-content: center; Centers items horizontally */
+	justify-content: center; /* Centers items horizontally */
     /* align-items: center; Aligns items vertically */
 }
 
 .card-footer {
-	background: white;
+	background-color: hsl(207, 90%, 77%);
 	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	text-align: center;
-	width: 200px;
+	border-radius: 30px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+	text-align: left;
+	width: 300px;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 	/* display: flex; */
     flex-direction: column;
     align-items: center; /* Centers horizontally */
     justify-content: center; /* Centers vertically */
-    height: 100%; /* Ensures full height for proper centering */
+    /* height: 100%; Ensures full height for proper centering */
   }
 
-.card-footer h3 {
+.card-footer-h3 {
 	font-size: 1.3em;
-	color: hsl(217, 91%, 60%);
+	color: white;
 	transition: color 0.3s ease;
+	margin-left: 15%;
+	margin-bottom: 5%;
 }
 
-.card-footer p {
+.card-footer-p {
 	font-size: 1em;
-	color: #777;
+	color: #ffffff;
+	font-weight: 300;
+	margin-left: 15%;
+	margin-right: 15%;
 }
 
-.card-footer img {
+.card-footer-img {
 	width: 100px;
 	height: 100px;
 	border-radius: 50%;
 	margin-bottom: 1px;
 	transition: transform 0.3s ease;
+	margin-left: 15%;
 }
 
 .footer-list {
     background: none;
-	margin: 5px 0; /* Reduce spacing between list items */
+	list-style: none;
+	margin: 10px 0; /* Reduce spacing between list items */
     padding: 5px 0; /* Minimize internal padding */
 }
 
@@ -64,24 +72,26 @@
 
 .footer-links {
     font-size: 16px;
-    color: #777;
+    color: hsl(0, 0%, 100%);
     text-decoration: none;
-    font-weight: 700;
-
+    font-weight: 300;
+	margin-left: 0%;
 }
 
 .footer-links:hover {
-    color: hsl(217, 91%, 60%);
+	text-decoration: underline;
 }
 
 .copy-text {
     cursor: pointer;
-    color: #777;
-    text-decoration: underline;
+	font-size: 1em;
+	color: hsl(0, 0%, 100%);
+	font-weight: 300;
 }
 
 .copy-text:hover {
-    color: hsl(217, 91%, 60%);
+	background: none;
+	text-decoration: underline;
 }
 
 .footer-copyright {
@@ -92,3 +102,13 @@
     margin-top: 20px;
     width: 100%;
 }
+
+.hor-line{
+	border: 1px solid hsl(207, 89%, 68%);
+    width: 70%;
+    display: block; /* Ensures it behaves properly */
+    margin-top: 5px;   /* Smaller top margin */
+    margin-bottom: 10px; /* Double the top margin */
+    margin-left: 15%;
+}
+
