@@ -12,6 +12,7 @@
     background-color: hsl(212, 33%, 65%, 0.5);
     font-size: 2.5rem;
     color: white;
+    padding: 0.5rem 1rem;
 }
 
 .search-event::placeholder {
@@ -28,10 +29,32 @@
 }
 
 .search-event-button{
-    background-color: hsl(212, 37%, 40%);
-    border: none;
+  background-color: hsl(212, 37%, 40%);
+  border: none;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
 }
 
 .search-event-button:hover{
     background-color: hsl(212, 8%, 68%);
 }
+
+.hot-events-container {
+    display: grid;
+    row-gap: 20px;
+    column-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    justify-content: center;
+    padding: 20px;
+
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* @media (max-width: 600px) {
+    .hot-events-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+} */
