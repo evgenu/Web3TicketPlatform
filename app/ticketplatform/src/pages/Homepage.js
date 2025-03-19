@@ -14,7 +14,15 @@ function Homepage(){
                 </button>
         </div>
 
-        <div className="hot-event-container">
+        <div className={homepageStyles["hot-events-container"]}>
+            <HotEventCard></HotEventCard>
+            <HotEventCard></HotEventCard>
+            <HotEventCard></HotEventCard>
+            <HotEventCard></HotEventCard>
+            <HotEventCard></HotEventCard>
+            <HotEventCard></HotEventCard>
+            <HotEventCard></HotEventCard>
+            <HotEventCard></HotEventCard>
             <HotEventCard></HotEventCard>
         </div>
         </>

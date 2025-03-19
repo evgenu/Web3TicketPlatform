@@ -13,7 +13,7 @@ const Navbar = () => {
                     <h1 className={navbarStyles['logo-text']}>TicketChain</h1>
                 </a>
 
-                <div className={navbarStyles['navbar-links']}>
+                <nav className={navbarStyles['navbar-links']}>
 
                     <ul className={navbarStyles['navbar-ul']}>
                         <li className={navbarStyles['navbar-list']}>
@@ -42,7 +42,7 @@ const Navbar = () => {
                         </li>
                     </ul>
 
-                </div>
+                </nav>
 
                 <a className={navbarStyles['login-link']} href='/login'>
                     <FontAwesomeIcon className={navbarStyles['login-image']} icon={faCircleUser} />
