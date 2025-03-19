@@ -1,9 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import navbarStyles from "../styles/Navbar.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser, faTicket } from '@fortawesome/free-solid-svg-icons';
+import { ethers } from 'ethers';
+import { setContract } from '../store/contract';
+import { setProvider } from '../store/provider';
+import { useDispatch } from 'react-redux';
+
+import CONTRACT_ABI from '../constants/abis/TicketPlatform.json';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+
+    const dispatch = useDispatch();
+
+    const handleConnectWallet = async () => {
+        if (window.ethereum != null) {
+            const currentprovider = new ethers.BrowserProvider(window.ethereum);
+            const signer = await currentprovider.getSigner();
+
+            const contract = new ethers.Contract("0x12dd4647bF90B39998bC4CB893FC1f96bE27ECc5", CONTRACT_ABI.abi, signer );
+
+            dispatch(setProvider(currentprovider));
+            dispatch(setContract(contract));
+        } else {
+            alert('Please install MetaMask!');
+        }
+    }
+
     return (
         <header>
             <div className={navbarStyles.navbar}>
@@ -18,36 +42,36 @@ const Navbar = () => {
                     <ul className={navbarStyles['navbar-ul']}>
                         <li className={navbarStyles['navbar-list']}>
 
-                            <a className={navbarStyles['navbar-a']} href="/">
+                            <Link className={navbarStyles['navbar-a']} to="/">
                                 Home
-                            </a>
+                            </Link>
                         </li>
 
                         <li className={navbarStyles['navbar-list']}>
-                            <a className={navbarStyles['navbar-a']} href="/events">
+                            <Link className={navbarStyles['navbar-a']} to="/events">
                                 Events
-                            </a>
+                            </Link>
                         </li>
 
                         <li className={navbarStyles['navbar-list']}>
-                            <a className={navbarStyles['navbar-a']} href="/tickets">
-                                My Tickets
-                            </a>
+                           <Link className={navbarStyles['navbar-a']} to="/tickets">
+                                Tickets
+                            </Link>
                         </li>
 
                         <li className={navbarStyles['navbar-list']}>
-                            <a className={navbarStyles['navbar-a']} href="/about">
-                                AboutUs
-                            </a>
+                            <Link className={navbarStyles['navbar-a']} to="/about">
+                                About Us
+                            </Link>
                         </li>
                     </ul>
 
                 </nav>
 
-                <a className={navbarStyles['login-link']} href='/login'>
+                <button className={navbarStyles['login-link']} onClick={handleConnectWallet}>
                     <FontAwesomeIcon className={navbarStyles['login-image']} icon={faCircleUser} />
                     <p className={navbarStyles['login-text']}>Connect Wallet</p>
-                </a>
+                </button>
 
             </div>
         </header>
