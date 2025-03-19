@@ -4,21 +4,20 @@ import './App.css';
 import AboutUs from './pages/AboutUs';
 import Homepage from './pages/Homepage';
 import Layout from './components/Layout';
-import { Provider } from 'react-redux';
-import { store } from './store/index';
+import { ContractProvider } from './hooks/contractHook';
 
 
 function App() {
   return (
     <Router>
-      <Provider store={store}>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/about" element={<AboutUs />} />
-          </Routes>
-        </Layout>
-      </Provider>
+      <ContractProvider>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/about" element={<AboutUs />} />
+            </Routes>
+          </Layout>
+        </ContractProvider>
     </Router>  
   );
 }

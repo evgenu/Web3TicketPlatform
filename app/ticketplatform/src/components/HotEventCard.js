@@ -13,9 +13,9 @@ function HotEventCard(props) {
                         </div>
 
                         <div className={hotEventCard["card-content"]}>
-                            <h3 className={hotEventCard["card-title"]}>Elrow</h3>
-                            <p className={hotEventCard["card-date"]}>Date: 12/12/2021</p>
-                            <p className={hotEventCard["card-location"]}>Location: Sofia, Bulgaria</p>
+                            <h3 className={hotEventCard["card-title"]}>{props.name}</h3>
+                            <p className={hotEventCard["card-date"]}>{props.date}</p>
+                            <p className={hotEventCard["card-date"]}>{props.descrption}</p>
                         </div>
                     </a>
                 </div>

@@ -3,26 +3,24 @@ import navbarStyles from "../styles/Navbar.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser, faTicket } from '@fortawesome/free-solid-svg-icons';
 import { ethers } from 'ethers';
-import { setContract } from '../store/contract';
-import { setProvider } from '../store/provider';
-import { useDispatch } from 'react-redux';
+
 
 import CONTRACT_ABI from '../constants/abis/TicketPlatform.json';
 import { Link } from 'react-router-dom';
+import { useContract } from '../hooks/contractHook';
 
 const Navbar = () => {
 
-    const dispatch = useDispatch();
+    const { setContract } = useContract();
 
     const handleConnectWallet = async () => {
         if (window.ethereum != null) {
             const currentprovider = new ethers.BrowserProvider(window.ethereum);
             const signer = await currentprovider.getSigner();
 
-            const contract = new ethers.Contract("0x12dd4647bF90B39998bC4CB893FC1f96bE27ECc5", CONTRACT_ABI.abi, signer );
-
-            dispatch(setProvider(currentprovider));
-            dispatch(setContract(contract));
+            const currContract = new ethers.Contract("0x12dd4647bF90B39998bC4CB893FC1f96bE27ECc5", CONTRACT_ABI.abi, signer );
+            setContract(currContract);
+           
         } else {
             alert('Please install MetaMask!');
         }
