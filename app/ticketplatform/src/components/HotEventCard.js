@@ -1,6 +1,5 @@
 import React from "react";
 import hotEventCard from "../styles/HotEventCard.module.css";
-import elrow from "../icons/Elrow.jpeg";
 
 function HotEventCard(props) {
     return (
@@ -8,7 +7,7 @@ function HotEventCard(props) {
                 <div className={hotEventCard["wrapper"]}>
                     <a href="/event" className={hotEventCard["card-link"]}> 
                         <div className={hotEventCard["card-image"]}>
-                            <img src={elrow} alt
+                            <img alt
                             ="Elrow" className={hotEventCard["card-img"]} />
                         </div>
 

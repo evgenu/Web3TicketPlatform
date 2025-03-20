@@ -7,15 +7,34 @@
 	padding: 50px;
 	background: #64b5f6;
 
+	/* display: flex;
+	width: 100%; */
+	
+	/* min-height: 600px;
+	max-width: 100%;  */
+	/* padding: min(5em, 8%); */
+
 }
 
 .footer-components{
 	display: flex;
 	justify-content: center;
-	gap: 30px;
-	justify-content: center; /* Centers items horizontally */
-    /* align-items: center; Aligns items vertically */
+	gap: 10px;
+	justify-content: center;
+    /* align-items: center;  */
+
+	/* flex-wrap: wrap; */
+
+	/* padding: min(5em, 8%); */
+
 }
+
+/* .footer-components{
+	display: grid;
+	gap: 2rem;
+	grid-template-columns: 
+		repeat(auto-fit, minmax(250px, 1fr));
+} */
 
 .card-footer {
 	background-color: hsl(207, 90%, 77%);
@@ -112,3 +131,49 @@
     margin-left: 15%;
 }
 
+
+/* Example responsive breakpoints */
+@media (max-width: 1021px) {
+	.footer-components{
+		flex-wrap: wrap;
+	}
+  }
+   
+@media (max-width: 789px) {
+	.footer-container {
+		padding: 20px; /* Slightly reduce padding on smaller screens */
+		flex-direction: column; /* Stack the containers vertically */
+	}
+
+	/* Stack each card (footer item) at full width */
+	.card-footer {
+		width: 80%;  
+		margin: 10px auto; /* Center the items */
+	}
+
+	.card-footer-h3,
+	.card-footer-p {
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+
+	.card-footer-img {
+		margin-left: 0;
+	}
+}
+
+@media (max-width: 480px) {
+	.card-footer {
+		width: 90%; /* Even narrower for very small screens */
+	}
+
+	.card-footer-h3 {
+		font-size: 1.1em;
+	}
+
+	.card-footer-p,
+	.footer-links,
+	.copy-text {
+		font-size: 0.9em;
+	}
+}

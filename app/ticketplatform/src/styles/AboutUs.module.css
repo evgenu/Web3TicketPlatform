@@ -1,7 +1,7 @@
 .about-container {
 	text-align: center;
 	padding: 50px;
-	background-color: #f9f9f9;
+	/* background-color: #f9f9f9; */
 }
   
 /* Heading */
@@ -22,6 +22,10 @@
 	display: flex;
 	justify-content: center;
 	gap: 30px;
+
+  /*  */
+  /* flex-wrap: wrap; */
+  /*  */
 }
   
 /* Team Member Card */
@@ -88,7 +92,7 @@
 }
 
 /* Paragraphs */
-.about_paragraph {
+.about-paragraph {
   font-size: 1.2em;
   margin-bottom: 20px;
 }
@@ -99,7 +103,7 @@
   padding: 0;
 }
 
-.ul_list_items {
+.ul-list-items {
   background: #ecf0f1;
   margin: 10px 0;
   padding: 12px;
@@ -107,17 +111,17 @@
   transition: 0.3s;
 }
 
-.ul_list_items:hover {
+.ul-list-items:hover {
   background: #d5dbdb;
 }
 
 /* Highlighted Text */
-.about_strong {
+.about-strong {
   color: #42A5F5 ;
 }
 
 /* Call-to-Action Button */
-.call_to_action_button {
+.call-to-action-button {
   display: block;
   width: 200px;
   text-align: center;
@@ -131,7 +135,7 @@
   transition: 0.3s;
 }
 
-.call_to_action_button:hover {
+.call-to-action-button:hover {
   background: #BBDEFB ;
 }
 
@@ -142,3 +146,28 @@
     font-size: 1.1em;
     color: #555;
 } */
+
+
+@media (max-width: 850px) {
+	.team {
+    flex-wrap: wrap; 
+  }
+}
+
+/* At medium screen sizes, scale back width and font-size */
+@media (max-width: 768px) {
+  .call-to-action-button {
+    width: 80%;
+    font-size: 1em;  /* Slightly smaller text */
+    max-width: 300px;  /* Prevent it from growing too large */
+  }
+}
+
+/* On very small screens, let it stretch almost the full width */
+@media (max-width: 480px) {
+  .call-to-action-button {
+    width: 90%;
+    font-size: 0.9em;
+    max-width: 280px;  /* Example: narrower max width if desired */
+  }
+}

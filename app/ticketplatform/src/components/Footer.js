@@ -68,20 +68,14 @@ const Footer = () => {
 						</ul>
 					</div>
 
-
 					{/* need to include links for the login and registration pages */}
 					<div className={footerStyles['card-footer']}>
 						<h3 className={footerStyles['card-footer-h3']}>Account</h3>
 						<hr className={footerStyles["hor-line"]}></hr>
 						<ul>
 							<li className={footerStyles["footer-list"]}>
-								<a className={footerStyles["footer-links"]} href="/">
-									Login
-								</a>
-							</li>
-							<li className={footerStyles["footer-list"]}>
-								<a className={footerStyles["footer-links"]} href="/events">
-									Sign up
+								<a className={footerStyles["footer-links"]} href="/wallet">
+									Connect Wallet
 								</a>
 							</li>
 						</ul>
