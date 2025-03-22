@@ -29,7 +29,7 @@ const Navbar = () => {
     const toggleMenu = () => {
         // Flip the "menuOpen" boolean in state
         setMenuOpen(prev => !prev);
-      };
+    };
 
     return (
         <header className={navbarStyles.navbar}>
@@ -38,15 +38,6 @@ const Navbar = () => {
                 <FontAwesomeIcon className={navbarStyles['logo']} icon={faTicket} />
                 <h1 className={navbarStyles['logo-text']}>TicketChain</h1>
             </NavLink>
-
-            <button
-                aria-expanded={menuOpen}
-                aria-controls="navbar-links"
-                className={navbarStyles['mobile-nav-toggle']}
-                onClick={toggleMenu}
-            >
-                <FontAwesomeIcon icon={faRectangleList} />
-            </button>
 
             <nav>
                 <ul id="navbar-links" data-visible={menuOpen} className={navbarStyles['navbar-links']}>
@@ -78,9 +69,20 @@ const Navbar = () => {
             </nav>
 
 
-            <button className={navbarStyles['login-button']} onClick={handleConnectWallet}>
-                <FontAwesomeIcon className={navbarStyles['login-image']} icon={faCircleUser} />
-            </button>
+            <div className={navbarStyles['navbar-controls']}>
+                <button className={navbarStyles['login-button']} onClick={handleConnectWallet}>
+                    <FontAwesomeIcon className={navbarStyles['login-image']} icon={faCircleUser} />
+                </button>
+
+                <button
+                    aria-expanded={menuOpen}
+                    aria-controls="navbar-links"
+                    className={navbarStyles['mobile-nav-toggle']}
+                    onClick={toggleMenu}
+                >
+                    <FontAwesomeIcon icon={faRectangleList} />
+                </button>
+            </div>
 
         </header>
     );
