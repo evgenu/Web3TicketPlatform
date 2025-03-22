@@ -152,13 +152,24 @@
 	}
 
 	.card-footer-h3,
-	.card-footer-p {
+	.card-footer-p
+	{
 		margin-left: 5%;
 		margin-right: 5%;
+		font-size: 1.5em;
 	}
 
 	.card-footer-img {
 		margin-left: 0;
+	}
+	.footer-links{
+		font-size: 1.4em;
+	}
+
+	.copy-text {
+		font-size: 0.9em;
+		margin-left: 5%;
+		margin-right: 5%;
 	}
 }
 
@@ -168,12 +179,18 @@
 	}
 
 	.card-footer-h3 {
-		font-size: 1.1em;
+		font-size: 1.7em;
 	}
 
-	.card-footer-p,
-	.footer-links,
+	.footer-links {
+		font-size: 1.6em;
+	}
+
+	.card-footer-p {
+		font-size: 1.6em;
+	}
+
 	.copy-text {
-		font-size: 0.9em;
+		font-size: 1em;
 	}
 }

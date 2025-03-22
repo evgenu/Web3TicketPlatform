@@ -107,7 +107,10 @@ const Footer = () => {
            																						zazaazaa78@gmail.com
         																		   </span> 
 						</p>
-						<p className={footerStyles["card-footer-p"]}>address: <br /> 7 Ulitsa str. 4400</p>
+						<p className={footerStyles["card-footer-p"]}>address: <br /><span className={footerStyles["copy-text"]}
+            																					onClick={() => copyToClipboardEmail("7 Hebros str. Pazarddzhik")}>
+           																						7 Hebros str. Pazarddzhik
+        																		   </span> </p>
 					</div>
 				</div>
 
