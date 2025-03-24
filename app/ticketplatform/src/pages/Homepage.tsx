@@ -5,15 +5,26 @@ import HotEventCard from '../components/HotEventCard';
 import { ethers } from 'ethers';
 import { useContract } from '../hooks/contractHook';
 
+interface Event {
+    name: string;
+    description: string;
+    date: number;
+    organizer: string;
+    ticketCount: number;
+    ticketSold: number;
+    ticketPrice: number;
+}
+
 function Homepage() {
-    const [events, setEvents] = useState([]);
-    const { contract } = useContract();
+    const [events, setEvents] = useState<Event[]>([]);
+    const { contract } = useContract() || {};
 
     const searchClick = async () => {
         var i = 1;
         while ( true )
         {
-            const event = await contract.getEventDetails(i);
+            const event = contract ? await contract.getEventDetails(i) : null;
+            if (!event) break;
             if (event.name === '') break;
             setEvents(prevEvents => [...prevEvents, event]);
             i++
@@ -33,7 +44,7 @@ function Homepage() {
 
         <div className={homepageStyles["hot-events-container"]}>
             {events.map((event, i) =>
-                    <HotEventCard name={event.name} date={events.date} description={event.description} />
+                    <HotEventCard name={event.name} date={event.date.toString()} description={event.description} />
             )}
         </div>
         </>

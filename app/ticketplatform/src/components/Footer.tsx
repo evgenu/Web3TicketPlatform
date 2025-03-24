@@ -2,13 +2,13 @@ import React from 'react';
 import footerStyles from '../styles/Footer.module.css';
 import logo from '../logo.svg';
 
-const copyToClipboardPhone = (text) => {
+const copyToClipboardPhone = (text: string) => {
     navigator.clipboard.writeText(text)
         .then(() => alert("Phone number copied to clipboard!"))
         .catch(err => console.error("Error copying text: ", err));
 };
 
-const copyToClipboardEmail = (text) => {
+const copyToClipboardEmail = (text: string) => {
     navigator.clipboard.writeText(text)
         .then(() => alert("Email number copied to clipboard!"))
         .catch(err => console.error("Error copying text: ", err));

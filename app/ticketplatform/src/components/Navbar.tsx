@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
-import navbarStyles from "../styles/Navbar.module.css";
+import { NavLink } from 'react-router-dom';
+import { ethers } from 'ethers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser, faTicket, faRectangleList } from '@fortawesome/free-solid-svg-icons';
-import { ethers } from 'ethers';
-
-import CONTRACT_ABI from '../constants/abis/TicketPlatform.json';
-import { NavLink } from 'react-router-dom';
 import { useContract } from '../hooks/contractHook';
+import navbarStyles from "../styles/Navbar.module.css";
+import CONTRACT_ABI from '../constants/abis/TicketPlatform.json';
 
 const Navbar = () => {
 
-    const [menuOpen, setMenuOpen] = useState(false);
-    const { setContract } = useContract();
+    const [menuOpen, setMenuOpen] = useState<boolean>(false);
+    const contractContext = useContract();
 
     const handleConnectWallet = async () => {
-        if (window.ethereum != null) {
-            const currentProvider = new ethers.BrowserProvider(window.ethereum);
+        if ((window as any).ethereum != null) {
+            const currentProvider = new ethers.BrowserProvider((window as any).ethereum);
             const signer = await currentProvider.getSigner();
 
             const currContract = new ethers.Contract("0x12dd4647bF90B39998bC4CB893FC1f96bE27ECc5", CONTRACT_ABI.abi, signer);
-            setContract(currContract);
+            if (contractContext && contractContext.setContract) {
+                contractContext.setContract(currContract);
+            }
 
         } else {
             alert('Please install MetaMask!');
@@ -32,7 +33,7 @@ const Navbar = () => {
     };
 
     return (
-        <header className={navbarStyles.navbar}>
+        <header className={navbarStyles['navbar']}>
 
             <NavLink className={navbarStyles['home-link-container']} to="/">
                 <FontAwesomeIcon className={navbarStyles['logo']} icon={faTicket} />
