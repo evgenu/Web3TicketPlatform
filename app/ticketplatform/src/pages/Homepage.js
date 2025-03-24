@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import homepageStyles from "../styles/Homepage.module.css";
 import HotEventCard from '../components/HotEventCard';
 
+import MerchCard from '../components/MerchCard';
+
 import { ethers } from 'ethers';
 import { useContract } from '../hooks/contractHook';
 
@@ -36,6 +38,8 @@ function Homepage() {
                     <HotEventCard name={event.name} date={events.date} description={event.description} />
             )}
         </div>
+
+        <MerchCard></MerchCard>
         </>
         
     );
