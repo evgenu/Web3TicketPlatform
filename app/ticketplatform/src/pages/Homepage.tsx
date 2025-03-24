@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { use, useContext, useEffect, useState } from 'react';
 import homepageStyles from "../styles/Homepage.module.css";
 import HotEventCard from '../components/HotEventCard';
 
@@ -19,10 +19,9 @@ function Homepage() {
     const [events, setEvents] = useState<Event[]>([]);
     const { contract } = useContract() || {};
 
-    const searchClick = async () => {
+    const loadEvents = async () => {
         var i = 1;
-        while ( true )
-        {
+        while (true) {
             const event = contract ? await contract.getEventDetails(i) : null;
             if (!event) break;
             if (event.name === '') break;
@@ -32,23 +31,27 @@ function Homepage() {
         }
     };
 
+    useEffect(() => {
+        loadEvents();
+    }, [contract]);
+
     return (
         <>
-        <div className={homepageStyles["search-event-container"]}>
-            <input type="text" placeholder="Search for events" 
-            className={homepageStyles["search-event"]}></input>
-            <button className={homepageStyles["search-event-button"]} onClick={searchClick}>          
-                Search
+            <div className={homepageStyles["search-event-container"]}>
+                <input type="text" placeholder="Search for events"
+                    className={homepageStyles["search-event"]}></input>
+                <button className={homepageStyles["search-event-button"]} onClick={loadEvents}>
+                    Search
                 </button>
-        </div>
+            </div>
 
-        <div className={homepageStyles["hot-events-container"]}>
-            {events.map((event, i) =>
+            <div className={homepageStyles["hot-events-container"]}>
+                {events.map((event, i) =>
                     <HotEventCard name={event.name} date={event.date.toString()} description={event.description} />
-            )}
-        </div>
+                )}
+            </div>
         </>
-        
+
     );
 }
 
