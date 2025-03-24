@@ -4,13 +4,16 @@ import { ethers } from 'ethers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser, faTicket, faRectangleList } from '@fortawesome/free-solid-svg-icons';
 import { useContract } from '../hooks/contractHook';
+import { useUser } from '../hooks/userHook';
 import navbarStyles from "../styles/Navbar.module.css";
 import CONTRACT_ABI from '../constants/abis/TicketPlatform.json';
 
 const Navbar = () => {
 
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
+    const [userAddress, setUserAddress] = useState<string | null>(null);
     const contractContext = useContract();
+    const user = useUser();
 
     const handleConnectWallet = async () => {
         if ((window as any).ethereum != null) {
@@ -18,8 +21,10 @@ const Navbar = () => {
             const signer = await currentProvider.getSigner();
 
             const currContract = new ethers.Contract("0x12dd4647bF90B39998bC4CB893FC1f96bE27ECc5", CONTRACT_ABI.abi, signer);
-            if (contractContext && contractContext.setContract) {
+            if (contractContext && contractContext.setContract && user && user.setUser) {
                 contractContext.setContract(currContract);
+                user.setUser(signer);
+                setUserAddress(await signer.getAddress());
             }
 
         } else {
@@ -72,6 +77,10 @@ const Navbar = () => {
 
             <div className={navbarStyles['navbar-controls']}>
                 <button className={navbarStyles['login-button']} onClick={handleConnectWallet}>
+
+                    <p className={navbarStyles['login-text']}>
+                        {contractContext?.contract ? `${userAddress?.slice(0, 11)}...` : 'Connect Wallet'}
+                    </p>
                     <FontAwesomeIcon className={navbarStyles['login-image']} icon={faCircleUser} />
                 </button>
 

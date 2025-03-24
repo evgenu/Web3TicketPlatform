@@ -6,20 +6,23 @@ import Homepage from './pages/Homepage';
 import Layout from './components/Layout';
 import { ContractProvider } from './hooks/contractHook';
 import Footer from './components/Footer';
+import { UserProvider } from './hooks/userHook';
 
 function App() {
   return (
     <>
       <Router>
       <ContractProvider>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/about" element={<AboutUs />} />
-            {/* Add more routes as needed */}
-          </Routes>
-        <Footer />
-        </Layout>
+        <UserProvider>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/about" element={<AboutUs />} />
+              {/* Add more routes as needed */}
+            </Routes>
+          <Footer />
+          </Layout>
+        </UserProvider>
       </ContractProvider>
       </Router>
     </>
