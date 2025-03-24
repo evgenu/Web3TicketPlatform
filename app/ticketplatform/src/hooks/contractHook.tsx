@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { ethers } from "ethers";
+import { ReactNode } from "react";
 
 interface ContractContextType {
   contract: ethers.Contract | null;
@@ -8,7 +9,6 @@ interface ContractContextType {
 
 const ContractContext = createContext<ContractContextType | null>(null);
 
-import { ReactNode } from "react";
 
 interface ContractProviderProps {
   children: ReactNode;
