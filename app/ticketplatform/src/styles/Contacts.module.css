@@ -1,0 +1,179 @@
+.team {
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: center; 
+    gap: 20px; 
+  }
+  
+  
+  .contact-container {
+    text-align: center;
+    padding: 50px;
+    background-color: hsl(205, 87%, 94%);
+  }
+  
+  .contact-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .contact-container p {
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  /* Team section */
+  .team {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  /* Team Member Card */
+  .team-member {
+    background: #bbdefb; /* Light blue background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 240px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Team Member Image */
+  .team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .team-member:hover img {
+    transform: scale(1.1);
+  }
+  
+  /* Team Member Name */
+  .team-member h3 {
+    font-size: 1.3em;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  .team-member:hover h3 {
+    color: #007bff;
+  }
+  
+  /* Team Member Image */
+  .team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .team-member:hover img {
+    transform: scale(1.1);
+  }
+  
+  /* Team Member Name */
+  .team-member h3 {
+    font-size: 1.3em;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  .team-member:hover h3 {
+    color: #007bff;
+  }
+  
+  /* Team Member Contact Info */
+  .team-member p {
+    font-size: 1em;
+    color: #777;
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+  
+  .copy-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    font-size: 1em;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .copy-btn:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  
+  
+  /* Updated CSS for the contact form */
+  .inquiry-form-container {
+    background: #bbdefb; /* Blue background */
+    padding: 30px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    text-align: center;
+    width: 75%; /* Full width as drawn in blue */
+    max-width: 100%; /* Full width */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .inquiry-form-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 50px; /* Increased margin for spacing */
+    color: black; /* White text for contrast */
+  }
+  
+  .inquiry-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px; /* Wider form */
+    margin: auto;
+  }
+  
+  .inquiry-form-container input,
+  .inquiry-form-container textarea {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    background: white; /* White background for input fields */
+  }
+  
+  .inquiry-form-container textarea {
+    height: 120px; /* Slightly taller textarea */
+    resize: none;
+  }
+  
+  .inquiry-form-container button {
+    background: white; /* White background for button */
+    color: #007bff; /* Blue text for button */
+    border: none;
+    padding: 8px 16px; /* Smaller button */
+    font-size: 1rem; /* Smaller font size */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: auto; /* Auto width for smaller button */
+    margin: 0 auto; /* Center the button */
+  }
+  
+  .inquiry-form-container button:hover {
+    background: #bbdefb; /* Light grey background on hover */
+  }
+  
