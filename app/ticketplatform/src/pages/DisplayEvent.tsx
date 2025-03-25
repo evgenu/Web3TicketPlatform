@@ -1,7 +1,8 @@
+import EventList from "../components/EventList";
 import { useLocation } from "react-router-dom";
 import { useContract } from "../hooks/contractHook";
 import { useEffect, useState } from "react";
-import eventStyles from "../styles/Event.module.css";
+import displayEventStyles from "../styles/DisplayEvent.module.css";
 import { ethers } from "ethers";
 
 interface Event {
@@ -45,29 +46,31 @@ const DisplayEvent = () => {
             
         };
     }
-    
 
     return (
         <>
+           <EventList />
             {
                 !event ? <h1>Loading...</h1> : (
                     <>
-                        <div className={eventStyles["event-container"]}>
+                        <div className={displayEventStyles["event-container"]}>
 
-                        <h1 className={eventStyles["event-name"]}>Event name: {event.name}</h1>
-                        <p className={eventStyles["event-description"]}>Event description</p>
-                        <p className={eventStyles["event-text"]}>{event.description}</p>
-                        <p className={eventStyles["event-date"]}>Event date: {new Date(Number(event.date) * 1000).toLocaleDateString()}</p>
+                        <h1 className={displayEventStyles["event-name"]}>Event name: {event.name}</h1>
+                        <p className={displayEventStyles["event-description"]}>Event description</p>
+                        <p className={displayEventStyles["event-text"]}>{event.description}</p>
+                        <p className={displayEventStyles["event-date"]}>Event date: {new Date(Number(event.date) * 1000).toLocaleDateString()}</p>
 
-                        <button className={eventStyles["event-pay-button"]} onClick={buyTicket}>Pay with Wei {ethers.formatEther(event.ticketPrice)}</button>
+                        <button className={displayEventStyles["event-pay-button"]} onClick={buyTicket}>Pay with Wei {ethers.formatEther(event.ticketPrice)}</button>
 
                         </div>
 
                     </>
                 )
             }
+
         </>
     );
+
 }
 
 export default DisplayEvent;

@@ -61,16 +61,17 @@ const Navbar = () => {
                     </li>
 
                     <li className={navbarStyles['navbar-list']}>
-                        <NavLink className={navbarStyles['navbar-a']} to="/tickets">
-                            Tickets
-                        </NavLink>
-                    </li>
-
-                    <li className={navbarStyles['navbar-list']}>
                         <NavLink className={navbarStyles['navbar-a']} to="/about">
                             About Us
                         </NavLink>
                     </li>
+
+                    <li className={navbarStyles['navbar-list']}>
+                        <NavLink className={navbarStyles['navbar-a']} to="/contactUs">
+                            Contact Us
+                        </NavLink>
+                    </li>
+
                 </ul>
             </nav>
 

@@ -27,7 +27,7 @@ const EventList = () => {
             if (!event) break;
             if (event.name === '') break;
             setEvents(prevEvents => [...prevEvents, event]);
-            i++
+            i++;
         }
     };
 
@@ -37,14 +37,6 @@ const EventList = () => {
 
     return (
         <>
-            <div className={homepageStyles["search-event-container"]}>
-                <input type="text" placeholder="Search for events"
-                    className={homepageStyles["search-event"]}></input>
-                <button className={homepageStyles["search-event-button"]} onClick={loadEvents}>
-                    Search
-                </button>
-            </div>
-
             <div className={homepageStyles["hot-events-container"]}>
                 {events.map((event, i) =>
                     <HotEventCard id={i + 1} name={event.name} date={event.date.toString()} description={event.description} />

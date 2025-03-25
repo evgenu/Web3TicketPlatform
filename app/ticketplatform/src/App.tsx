@@ -4,11 +4,12 @@ import './App.css';
 import AboutUs from './pages/AboutUs';
 import Homepage from './pages/Homepage';
 import Layout from './components/Layout';
-import Event from './pages/Event';
 import { ContractProvider } from './hooks/contractHook';
 import Footer from './components/Footer';
 import { UserProvider } from './hooks/userHook';
 import DisplayEvent from './pages/DisplayEvent';
+import CreateEvent from './pages/CreateEvent';
+import Events from './pages/Events';
 
 function App() {
   return (
@@ -20,11 +21,13 @@ function App() {
             <Routes>
               <Route path="/" element={<Homepage />} />
               <Route path="/about" element={<AboutUs />} />
-              <Route path="/events/" element={<Event />} />
-              <Route path="/displayEvent" element={<DisplayEvent />} />
+              {/* <Route path="/events/" element={<Event />} /> */}
+              <Route path="/event/:id" element={<DisplayEvent />} />
+              <Route path="/events" element={<Events />} />
+              <Route path="/createEvent" element={<CreateEvent/>} />
             </Routes>
-           <Footer />
           </Layout>
+           <Footer />
          </UserProvider>
       </ContractProvider>
       </Router>
