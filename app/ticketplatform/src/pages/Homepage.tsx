@@ -27,7 +27,7 @@ function Homepage() {
             if (event.name === '') break;
             setEvents(prevEvents => [...prevEvents, event]);
             i++
-            console.log(event);
+            // console.log(event);
         }
     };
 
@@ -47,7 +47,7 @@ function Homepage() {
 
             <div className={homepageStyles["hot-events-container"]}>
                 {events.map((event, i) =>
-                    <HotEventCard name={event.name} date={event.date.toString()} description={event.description} />
+                    <HotEventCard id={i + 1} name={event.name} date={event.date.toString()} description={event.description} />
                 )}
             </div>
         </>
