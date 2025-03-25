@@ -1,17 +1,21 @@
 import React from "react";
 import hotEventCard from "../styles/HotEventCard.module.css";
+import { Link } from 'react-router-dom';
+
 
 interface HotEventCardProps {
+    id: number;
     name: string;
     date: string;
     description: string;
 }
 
 function HotEventCard(props: HotEventCardProps) {
+
     return (
         <>
                 <div className={hotEventCard["wrapper"]}>
-                    <a href="/event" className={hotEventCard["card-link"]}> 
+                    <Link to={"/events"} state={{ id: props.id }} className={hotEventCard["card-link"]}> 
                         <div className={hotEventCard["card-image"]}>
                             <img alt
                             ="Elrow" className={hotEventCard["card-img"]} />
@@ -22,7 +26,7 @@ function HotEventCard(props: HotEventCardProps) {
                             <p className={hotEventCard["card-date"]}>{props.date}</p>
                             <p className={hotEventCard["card-date"]}>{props.description}</p>
                         </div>
-                    </a>
+                    </Link>
                 </div>
         </>
     );

@@ -4,6 +4,7 @@ import './App.css';
 import AboutUs from './pages/AboutUs';
 import Homepage from './pages/Homepage';
 import Layout from './components/Layout';
+import Event from './pages/Event';
 import { ContractProvider } from './hooks/contractHook';
 import Footer from './components/Footer';
 import { UserProvider } from './hooks/userHook';
@@ -18,11 +19,11 @@ function App() {
             <Routes>
               <Route path="/" element={<Homepage />} />
               <Route path="/about" element={<AboutUs />} />
-              {/* Add more routes as needed */}
+              <Route path="/events/" element={<Event />} />
             </Routes>
-          <Footer />
+           <Footer />
           </Layout>
-        </UserProvider>
+         </UserProvider>
       </ContractProvider>
       </Router>
     </>
