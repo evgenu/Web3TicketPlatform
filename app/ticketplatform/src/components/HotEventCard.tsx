@@ -15,7 +15,7 @@ function HotEventCard(props: HotEventCardProps) {
     return (
         <>
                 <div className={hotEventCard["wrapper"]}>
-                    <Link to={"/events"} state={{ id: props.id }} className={hotEventCard["card-link"]}> 
+                    <Link to={"/displayEvent"} state={{ id: props.id }} className={hotEventCard["card-link"]}> 
                         <div className={hotEventCard["card-image"]}>
                             <img alt
                             ="Elrow" className={hotEventCard["card-img"]} />
@@ -23,7 +23,7 @@ function HotEventCard(props: HotEventCardProps) {
 
                         <div className={hotEventCard["card-content"]}>
                             <h3 className={hotEventCard["card-title"]}>{props.name}</h3>
-                            <p className={hotEventCard["card-date"]}>{props.date}</p>
+                            <p className={hotEventCard["card-date"]}>{new Date(Number(props.date) * 1000).toLocaleDateString()}</p>
                             <p className={hotEventCard["card-date"]}>{props.description}</p>
                         </div>
                     </Link>

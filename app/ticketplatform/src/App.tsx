@@ -8,6 +8,7 @@ import Event from './pages/Event';
 import { ContractProvider } from './hooks/contractHook';
 import Footer from './components/Footer';
 import { UserProvider } from './hooks/userHook';
+import DisplayEvent from './pages/DisplayEvent';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path="/" element={<Homepage />} />
               <Route path="/about" element={<AboutUs />} />
               <Route path="/events/" element={<Event />} />
+              <Route path="/displayEvent" element={<DisplayEvent />} />
             </Routes>
            <Footer />
           </Layout>
