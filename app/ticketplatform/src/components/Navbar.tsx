@@ -55,7 +55,7 @@ const Navbar = () => {
                     </li>
 
                     <li className={navbarStyles['navbar-list']}>
-                        <NavLink className={navbarStyles['navbar-a']} to="/events">
+                        <NavLink className={navbarStyles['navbar-a']} to="/createEvent">
                             Events
                         </NavLink>
                     </li>

@@ -14,7 +14,7 @@ interface Event {
     ticketPrice: number;
 }
 
-const Event = () => {
+const DisplayEvent = () => {
 
     const location = useLocation();
     const { id } = location.state;
@@ -70,4 +70,4 @@ const Event = () => {
     );
 }
 
-export default Event;
+export default DisplayEvent;
