@@ -21,6 +21,7 @@ function Homepage() {
 
     const loadEvents = async () => {
         var i = 1;
+        setEvents([]);
         while (true) {
             const event = contract ? await contract.getEventDetails(i) : null;
             if (!event) break;

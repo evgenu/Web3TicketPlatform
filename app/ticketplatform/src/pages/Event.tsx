@@ -24,7 +24,10 @@ const Event = () => {
     useEffect(() => {
 
         const loadEvents = async () => {
-            if (!contract?.contract) return;
+            if (!contract?.contract) {
+                alert('Contract not loaded');
+                return;
+            };
             const eventDetails = await contract.contract.getEventDetails(id) as Event;
             setEvent(eventDetails);
         };
@@ -32,6 +35,16 @@ const Event = () => {
         loadEvents();
 
     }, [contract, id])
+
+    const buyTicket = async () => {
+        if (!contract?.contract) {
+            alert('Contract not loaded');
+            return;
+        };
+        const tx = await contract.contract.buyTicket(id, { value: event?.ticketPrice }); {
+            
+        };
+    }
     
 
     return (
@@ -46,7 +59,7 @@ const Event = () => {
                         <p className={eventStyles["event-text"]}>{event.description}</p>
                         <p className={eventStyles["event-date"]}>Event date: {event.date}</p>
 
-                        <button className={eventStyles["event-pay-button"]}>Pay with ETH {event.ticketPrice}</button>
+                        <button className={eventStyles["event-pay-button"]} onClick={buyTicket}>Pay with ETH {event.ticketPrice}</button>
 
                         </div>
 
