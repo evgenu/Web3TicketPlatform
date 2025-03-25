@@ -7,20 +7,23 @@ import Layout from './components/Layout';
 import Event from './pages/Event';
 import { ContractProvider } from './hooks/contractHook';
 import Footer from './components/Footer';
+import { UserProvider } from './hooks/userHook';
 
 function App() {
   return (
     <>
       <Router>
       <ContractProvider>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/about" element={<AboutUs />} />
-            <Route path="/events/" element={<Event />} />
-          </Routes>
-        <Footer />
-        </Layout>
+        <UserProvider>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/events/" element={<Event />} />
+            </Routes>
+           <Footer />
+          </Layout>
+         </UserProvider>
       </ContractProvider>
       </Router>
     </>
