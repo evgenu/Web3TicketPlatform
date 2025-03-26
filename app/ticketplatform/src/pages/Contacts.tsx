@@ -38,11 +38,11 @@ const Contacts: React.FC = () => {
     e.preventDefault();
 
     emailjs.send('service_j6wfihv', 'template_ssgbp0v', formData as Record<string, unknown>, 'gAxHctz8kA_3amp8a')
-      .then((result) => {
+      .then((result: {text: string}) => {
         alert('Your inquiry has been submitted!');
         console.log(result.text);
         setFormData({ name: '', email: '', phone: '', message: '' });
-      }, (error) => {
+      }, (error: {text: string}) => {
         console.error('Failed to send email:', error.text);
       });
   };
