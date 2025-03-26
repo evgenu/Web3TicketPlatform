@@ -1,12 +1,14 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
+import emailjs from 'emailjs-com';
 import contactStyles from '../styles/Contacts.module.css';
 
-interface FormData {
+// Define a type for the form data
+type FormData = {
   name: string;
   email: string;
   phone: string;
   message: string;
-}
+};
 
 interface TeamMember {
   name: string;
@@ -34,9 +36,15 @@ const Contacts: React.FC = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert('Your inquiry has been submitted!');
-    console.log(formData);
-    setFormData({ name: '', email: '', phone: '', message: '' });
+
+    emailjs.send('service_j6wfihv', 'template_ssgbp0v', formData, 'gAxHctz8kA_3amp8a')
+      .then((result) => {
+        alert('Your inquiry has been submitted!');
+        console.log(result.text);
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      }, (error) => {
+        console.error('Failed to send email:', error.text);
+      });
   };
 
   const teamMembers: TeamMember[] = [
@@ -81,7 +89,7 @@ const Contacts: React.FC = () => {
           <input type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required />
           <input type="tel" name="phone" placeholder="Your Phone" value={formData.phone} onChange={handleChange} required />
           <textarea name="message" placeholder="Describe your case..." value={formData.message} onChange={handleChange} required />
-          <button type={"submit"}>Submit</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     </div>
