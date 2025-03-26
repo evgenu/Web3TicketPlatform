@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import contactStyles from '../styles/Contacts.module.css';
 
 // Define a type for the form data
@@ -37,7 +37,7 @@ const Contacts: React.FC = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    emailjs.send('service_j6wfihv', 'template_ssgbp0v', formData, 'gAxHctz8kA_3amp8a')
+    emailjs.send('service_j6wfihv', 'template_ssgbp0v', formData as Record<string, unknown>, 'gAxHctz8kA_3amp8a')
       .then((result) => {
         alert('Your inquiry has been submitted!');
         console.log(result.text);
