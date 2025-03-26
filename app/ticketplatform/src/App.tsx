@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import AboutUs from './pages/AboutUs';
+import Contacts from './pages/Contacts';
 import Homepage from './pages/Homepage';
 import Layout from './components/Layout';
 import { ContractProvider } from './hooks/contractHook';
@@ -21,6 +22,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Homepage />} />
               <Route path="/about" element={<AboutUs />} />
+              <Route path="/contactUs" element={<Contacts />} />
               {/* <Route path="/events/" element={<Event />} /> */}
               <Route path="/event/:id" element={<DisplayEvent />} />
               <Route path="/events" element={<Events />} />
