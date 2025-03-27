@@ -33,7 +33,6 @@ const Events = () => {
         }
 
         <EventList />
-
         
         </>
     )
