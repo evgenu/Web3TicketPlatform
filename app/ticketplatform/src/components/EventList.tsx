@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useContract } from "../hooks/contractHook";
 import HotEventCard from "./HotEventCard";
-import homepageStyles from "../styles/Homepage.module.css";
+import eventListStyles from "../styles/EventList.module.css";
 
 
 interface Event {
@@ -37,7 +37,7 @@ const EventList = () => {
 
     return (
         <>
-            <div className={homepageStyles["hot-events-container"]}>
+            <div className={eventListStyles["hot-events-container"]}>
                 {events.map((event, i) =>
                     <HotEventCard id={i + 1} name={event.name} date={event.date.toString()} description={event.description} />
                 )}

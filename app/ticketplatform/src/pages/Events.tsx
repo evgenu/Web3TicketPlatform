@@ -29,11 +29,10 @@ const Events = () => {
         <>
 
         {
-            contAddr == usrAddr ? <Link to={"/createEvent"}>Create Event</Link> : <> DA! </>
+            contAddr == usrAddr ? <Link to={"/createEvent"}>Create Event</Link> : <></>
         }
 
         <EventList />
-
         
         </>
     )
