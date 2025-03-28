@@ -2,16 +2,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: hsl(207, 90%, 77%);
+    background: var(--navbar-color);
     border-bottom-left-radius: 5%;
     border-bottom-right-radius: 5%;
     max-width: 100%;
     height: auto;
     padding: 10px 50px;
+    overflow-x: hidden;
 }
 
 /* Logo and name container */
-.home-link-container{
+.home-link-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,34 +22,36 @@
 }
 
 .logo {
-    font-size: 1.75rem;
-    color: hsl(207, 73%, 39%);
-    transform: translateY(1.5px);
+    font-size: var(--text-3xl); /* по-голямо, но адаптивно */
+    color: var(--icons-color);
+    transform: translateY(2px);
 }
 
 .logo-text {
-    font-size: 1.75rem;
-    font-weight: bold;
+    font-size: var(--text-3xl); /* заглавие */
+    font-weight: var(--font-bold);
     color: white;
     margin: 0;
 }
 
 /* Navigation container */
+.mobile-nav-toggle {
+    display: none;
+}
 
-.navbar-ul {
-    display: flex; 
+.navbar-links {
+    display: flex;
     gap: 20px;
     list-style: none;
     margin: 0;
     padding: 0;
-    
 }
 
 .navbar-a {
     text-decoration: none;
     color: white;
-    font-size: 1.4rem;
-    font-weight: 600;
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
 
     padding: 0.5rem 1rem;
     border-radius: 0.3rem;
@@ -61,30 +64,136 @@
 }
 
 /* Login container */
-
-.login-link {
+.login-button {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-decoration: none;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    transition: background-color 0.3s ease-in-out;
-}
+    padding: 0;
 
-/* .login-link:hover {
-    background-color: hsla(207, 73%, 39%, 0.2);
-    cursor: pointer;
-} */
-
-.login-image {
-    width: 2.2rem;
-    height: auto;
-    color: hsl(207, 73%, 39%);
+    border: none;
+    background: inherit;
 }
 
 .login-text {
-    font-size: 1.2rem;
+    font-size: var(--text-lg);
     color: white;
-    margin: 0;
+    font-weight: var(--font-semibold);
+    margin: 10px;
 }
+
+.login-image {
+    width: var(--text-3xl);
+    height: auto;
+    color: var(--icons-color);
+}
+
+/* 📱 480px: Mobile devices */
+@media (max-width: 768px) {
+    .home-link-container {
+        gap: 0.25rem;
+    }
+
+    .logo {
+        font-size: var(--text-2xl);
+    }
+
+    .logo-text {
+        font-size: var(--text-2xl);
+    }
+
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .navbar-links {
+        position: fixed;
+        inset: 0 0 0 40%;
+        z-index: 1000;
+
+        flex-direction: column;
+        padding: min(20vh, 7em) 3.5em;
+        gap: 2.125em;
+
+        background: hsla(0, 0%, 100%, 0.3);
+        backdrop-filter: blur(1rem);
+
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar-links[data-visible="true"] {
+        transform: translateX(0);
+    }
+
+    .navbar-a {
+        color: hsl(207, 73%, 39%);
+        font-size: var(--text-lg);
+    }
+
+    .navbar-a:hover {
+        background-color: hsla(0, 2%, 65%, 0.154);
+        cursor: pointer;
+    }
+
+    .mobile-nav-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+
+        font-size: var(--text-2xl);
+        background: none;
+        border: none;
+        color: var(--icons-color);
+
+        z-index: 9999;
+    }
+
+    .navbar-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;    
+    }
+
+    .login-image {
+        width: var(--text-2xl);
+        height: auto;
+    }
+}
+  
+  /* 💻 769px – 1024px: Small screens, laptops */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .home-link-container {
+        gap: 0.25rem;
+    }
+
+    .logo {
+        font-size: var(--text-2xl);
+    }
+
+    .logo-text {
+        font-size: var(--text-2xl);
+    }
+
+    .navbar {
+        padding: 10px 30px;
+    }
+
+    .login-image {
+        width: var(--text-2xl);
+        height: auto;
+    }
+  }
+  
+  /* 🖥️ 1025px – 1200px: Desktops, large screens */
+  /* @media (min-width: 1025px) and (max-width: 1200px) {
+   
+  } */
+  
+  /* 🖥️📺 1201px+: Extra large screens, TVs */
+  /* @media (min-width: 1201px) {
+    
+  } */

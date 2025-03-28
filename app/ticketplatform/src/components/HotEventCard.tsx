@@ -1,7 +1,13 @@
 import React from "react";
 import hotEventCard from "../styles/HotEventCard.module.css";
 
-function HotEventCard(props) {
+interface HotEventCardProps {
+    name: string;
+    date: string;
+    description: string;
+}
+
+function HotEventCard(props: HotEventCardProps) {
     return (
         <>
                 <div className={hotEventCard["wrapper"]}>
@@ -14,7 +20,7 @@ function HotEventCard(props) {
                         <div className={hotEventCard["card-content"]}>
                             <h3 className={hotEventCard["card-title"]}>{props.name}</h3>
                             <p className={hotEventCard["card-date"]}>{props.date}</p>
-                            <p className={hotEventCard["card-date"]}>{props.descrption}</p>
+                            <p className={hotEventCard["card-date"]}>{props.description}</p>
                         </div>
                     </a>
                 </div>
