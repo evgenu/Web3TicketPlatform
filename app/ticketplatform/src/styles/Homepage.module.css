@@ -1,60 +1,67 @@
-.search-event-container{
-    display: flex;
-    justify-content: center;
-    background-color: hsl(212, 96%, 40%, 0.5);
-    border-radius: 25px;
-    margin: 2rem;
-    padding: 5rem;
+.search-event-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 3rem auto 1rem auto;
 }
 
 .search-event {
-    border: 5px solid hsl(212, 37%, 40%);
-    background-color: hsl(212, 33%, 65%, 0.5);
-    font-size: 2.5rem;
-    color: white;
-    padding: 0.5rem 1rem;
-}
-
-.search-event::placeholder {
-    color: white;
-}
-
-.search-event:hover {
-    border-color: hsl(212, 96%, 50%);
+    width: 100%;
+    padding: 0.75rem 1.2rem;
+    font-size: 1rem;
+    border: 2px solid hsl(212, 96%, 60%);
+    border-radius: 10px;
+    outline: none;
+    background-color: #eef6ff;
+    color: #1f2937;
+    transition: all 0.2s ease;
 }
 
 .search-event:focus {
-    outline: none; 
-    border-color: hsl(212, 8%, 68%);
+    border-color: hsl(212, 96%, 50%);
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.2);
 }
 
-.search-event-button{
-  background-color: hsl(212, 37%, 40%);
-  border: none;
-  font-size: 2.5rem;
-  color: white;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
+.search-event::placeholder {
+    color: #9ca3af;
 }
 
-.search-event-button:hover{
-    background-color: hsl(212, 8%, 68%);
+/* Dropdown box */
+.search-content-container {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 99;
 }
 
-.hot-events-container {
-    display: grid;
-    row-gap: 20px;
-    column-gap: 10px;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    justify-content: center;
-    padding: 20px;
-
-    max-width: 1400px;
-    margin: 0 auto;
+/* List items */
+.content-list {
+    list-style: none;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
-/* @media (max-width: 600px) {
-    .hot-events-container {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-} */
+.content-list:last-child {
+    border-bottom: none;
+}
+
+.content-list:hover {
+    background-color: #f3f4f6;
+}
+
+.content-link {
+    text-decoration: none;
+    color: #1f2937;
+    font-weight: 500;
+    display: block;
+}
