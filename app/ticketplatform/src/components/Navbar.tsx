@@ -19,23 +19,47 @@ const Navbar = () => {
 
     const handleConnectWallet = async () => {
         try {
-            if ((window as any).ethereum != null) {
-                const currentProvider = new ethers.BrowserProvider((window as any).ethereum);
-                const signer = await currentProvider.getSigner();
+            // Check if the wallet is already connected
+            if (userAddress) {
+                toast.info('Wallet is already connected.', { toastId: 'wallet--already-connected' });
+                return;
+            }
 
-                const currContract = new ethers.Contract("0x12dd4647bF90B39998bC4CB893FC1f96bE27ECc5", CONTRACT_ABI.abi, signer);
-                if (contractContext && contractContext.setContract && user && user.setUser) {
-                    contractContext.setContract(currContract);
-                    user.setUser(signer);
-                    setUserAddress(await signer.getAddress());
-                    toast.success('Wallet connected successfully!'); // Success toast
-                }
-            } else {
+            // Check if MetaMask is installed
+            if ((window as any).ethereum == null) {
                 throw new Error('MetaMask is not installed. Please install MetaMask to connect your wallet.');
             }
+
+            const provider = new ethers.BrowserProvider((window as any).ethereum);
+            const signer = await provider.getSigner();
+
+            const contractAddress = "0x12dd4647bF90B39998bC4CB893FC1f96bE27ECc5";
+            const currContract = new ethers.Contract(contractAddress, CONTRACT_ABI.abi, signer);
+
+            // Check on which netwrok the user is
+            const network = await provider.getNetwork();
+            const expectedChainId = 11155111;
+            if (network.chainId !== BigInt(expectedChainId)) {
+                toast.error('Please connect to the Sepolia test network.', { toastId: 'network-error' });
+                return;
+            }
+
+            if (contractContext && contractContext.setContract && user && user.setUser) {
+                contractContext.setContract(currContract);
+                user.setUser(signer);
+                setUserAddress(await signer.getAddress());
+                toast.success('Wallet connected successfully!', { toastId: 'wallet-success' }); // Success toast
+            }
+
         } catch (error: any) {
-            console.error('Error connecting wallet:', error);
-            toast.error(error.message || 'An unexpected error occurred while connecting the wallet.'); // Error toast
+            if (error.code === 4001) {
+                // User rejected the connection request
+                toast.error('Wallet connection request was rejected.', { toastId: 'wallet-rejected' });
+            } else {
+                // Generic error handling
+                console.error('Error connecting wallet:', error);
+                toast.error(error.message || 'An unexpected error occurred while connecting the wallet.', { toastId: 'generic-error' });
+            }
         }
     }
 
@@ -105,8 +129,9 @@ const Navbar = () => {
             </header>
             <ToastContainer
                 autoClose={2000}
-                closeOnClick={true}
-                pauseOnHover={false}
+                closeOnClick
+                pauseOnHover
+                newestOnTop={true}
                 style={{
                     top: '55px'
                 }}
