@@ -81,7 +81,12 @@ const CreateEvent = () => {
             );
             toast.success('Event created successfully!');
         } catch (error: any) {
-            toast.error(`Failed to create event: ${error.message}`);
+            if (error.action === 'sendTransaction' && error.reason === 'rejected') {
+                toast.info('Transaction rejected by user');
+            }
+            else {
+                toast.error(`Failed to create event: ${error.message}`);
+            }
         }
     };
 
