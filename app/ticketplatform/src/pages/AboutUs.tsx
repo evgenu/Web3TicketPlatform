@@ -1,5 +1,7 @@
 import React from 'react';
 import aboutStyles from '../styles/AboutUs.module.css';
+import { Link } from "react-router-dom";
+
 
 function AboutUs() {
   return (
@@ -14,41 +16,43 @@ function AboutUs() {
         </p>
         
         <div className={aboutStyles.team}>
+          
           <div className={aboutStyles['team-member']}>
+          <Link to="/contactUs" className={aboutStyles["about-link-styles"]}>
             <h3 className={aboutStyles['team-member-h3']}>Rumen Kalchev</h3>
-            <img src="https://via.placeholder.com/150" 
-                 className={aboutStyles['team-member-img']}
-                 alt="Team Member" />
-            <p className={aboutStyles['team-member-p']}>MEMBER</p>
+            <p className={aboutStyles['team-member-p']}><br></br>MEMBER</p>
+          </Link>
           </div>
+
           <div className={aboutStyles['team-member']}>
+          <Link to="/contactUs" className={aboutStyles["about-link-styles"]}>
             <h3 className={aboutStyles['team-member-h3']}>Georgi Stoev</h3>
-            <img src="https://via.placeholder.com/150" 
-                 className={aboutStyles['team-member-img']}
-                 alt="Team Member" />
-            <p className={aboutStyles['team-member-p']}>MEMBER</p>
+            <p className={aboutStyles['team-member-p']}><br></br>MEMBER</p>
+          </Link>
           </div>
+
           <div className={aboutStyles['team-member']}>
+          <Link to="/contactUs" className={aboutStyles["about-link-styles"]}>
             <h3 className={aboutStyles['team-member-h3']}>Ivan Andonov</h3>
-            <img src="https://via.placeholder.com/150" 
-                 className={aboutStyles['team-member-img']}
-                 alt="Team Member" />
-            <p className={aboutStyles['team-member-p']}>MEMBER</p>
+            <p className={aboutStyles['team-member-p']}><br></br>MEMBER</p>
+          </Link>
           </div>
+
+
           <div className={aboutStyles['team-member']}>
+          <Link to="/contactUs" className={aboutStyles["about-link-styles"]}>
             <h3 className={aboutStyles['team-member-h3']}>Evgeni Atanasov</h3>
-            <img src="https://via.placeholder.com/150"
-                 className={aboutStyles['team-member-img']}
-                 alt="Team Member" />
-            <p className={aboutStyles['team-member-p']}>MEMBER</p>
+            <p className={aboutStyles['team-member-p']}><br></br>MEMBER</p>
+          </Link>
           </div>
+
           <div className={aboutStyles['team-member']}>
+          <Link to="/contactUs" className={aboutStyles["about-link-styles"]}>
             <h3 className={aboutStyles['team-member-h3']}>Valeri Mirchevski</h3>
-            <img src="https://via.placeholder.com/150" 
-                 className={aboutStyles['team-member-img']}
-                 alt="Team Member" />
-            <p className={aboutStyles['team-member-p']}>MEMBER</p>
+            <p className={aboutStyles['team-member-p']}><br></br>MEMBER</p>
+          </Link>
           </div>
+
         </div>  
 
         <h2>Our Mission</h2>
@@ -78,7 +82,7 @@ function AboutUs() {
 
         <a href="https://chatgpt.com/" className={aboutStyles["call-to-action-button"]}>Join Us Today</a>
 
-        <p className={aboutStyles["about-paragraph"]}>Join us in shaping the future of ticketing with Web3. Experience the power of decentralization with <strong className={aboutStyles["about_strong"]}>NFT.bg</strong> today!</p>
+        <p className={aboutStyles["about-paragraph"]}>Join us in shaping the future of ticketing with Web3. Experience the power of decentralization with <strong className={aboutStyles["about_strong"]}>TicketChain.bg</strong> today!</p>
       </div>
     </div>
   );

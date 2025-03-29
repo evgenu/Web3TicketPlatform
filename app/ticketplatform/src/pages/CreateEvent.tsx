@@ -2,6 +2,10 @@ import { useState } from 'react';
 import { useContract } from '../hooks/contractHook';
 import createEventStyles from '../styles/CreateEvent.module.css';
 
+// 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 interface Event {
     name: string;
     description: string;
@@ -42,66 +46,101 @@ const CreateEvent = () => {
 
     const createEvent = async () => {
         if (!contract?.contract) {
-            alert('Contract not loaded');
+            // 
+            toast.error("Contract not loaded")
             return;
         };
 
         const { name, description, date, ticketCount, ticketPrice } = formData;
 
-        const dateTimeStampMs = Date.parse(date); //get date in milliseconds
-        const dateTimeStampSeconds = Math.floor(dateTimeStampMs / 1000); //convert to seconds
+        // 
+        if (!name.trim() || !description.trim() || !date.trim() || !ticketCount.trim() || !ticketPrice.trim()) {
+            toast.error('Please fill all fields before creating an event');
+            return;
+        }
 
-        const tx = await contract.contract.createEvent(name, description, dateTimeStampSeconds, ticketCount, ticketPrice);
+        // Convert input date to a timestamp
+        const dateMs = Date.parse(date);
+        const dateSeconds = Math.floor(dateMs / 1000);
+        const currentDateMs = new Date().getTime();
+
+        // Validate date is not in the past
+        if (dateMs < currentDateMs) {
+            toast.error('Event date cannot be in the past');
+            return;
+        }
+
+        try {
+
+            const tx = await contract.contract.createEvent(
+                name,
+                description,
+                dateSeconds,
+                ticketCount,
+                ticketPrice
+            );
+            toast.success('Event created successfully!');
+        } catch (error: any) {
+            toast.error(`Failed to create event: ${error.message}`);
+        }
     };
 
+    // Prepare minDate to ensure user can't pick a date in the past
+    const minDate = new Date().toISOString().split('T')[0];
+
+
     return (
-        <div className={createEventStyles["create-event-container"]}>
+        <>
+            <div className={createEventStyles["create-event-container"]}>
 
-            <h1 className={createEventStyles["create-event-h1"]}>Create Event</h1>
+                <h1 className={createEventStyles["create-event-h1"]}>Create Event</h1>
 
-            <input type="text"
-                placeholder="Event Name"
-                name="name"
-                className={createEventStyles["input-name"]}
-                value={formData.name}
-                onChange={handleChange} 
-            />
+                <input type="text"
+                    placeholder="Event Name"
+                    name="name"
+                    className={createEventStyles["input-name"]}
+                    value={formData.name}
+                    onChange={handleChange}
+                />
 
-            <input type="text"
-                placeholder="Event Description"
-                name="description"
-                className={createEventStyles["input-description"]}
-                value={formData.description}
-                onChange={handleChange} 
-            />
+                <input type="text"
+                    placeholder="Event Description"
+                    name="description"
+                    className={createEventStyles["input-description"]}
+                    value={formData.description}
+                    onChange={handleChange}
+                />
 
-            <input type="date"
-                placeholder="Event Date"
-                name="date"
-                className={createEventStyles["input-date"]}
-                value={formData.date}
-                onChange={handleChange} 
-            />
+                <input type="date"
+                    placeholder="Event Date"
+                    name="date"
+                    className={createEventStyles["input-date"]}
+                    value={formData.date}
+                    onChange={handleChange}
+                    min={minDate}
+                />
 
-            <input type="number"
-                placeholder="Ticket Count"
-                name="ticketCount"
-                className={createEventStyles["input-count"]}
-                value={formData.ticketCount}
-                onChange={handleChange} 
-            />
+                <input type="number"
+                    placeholder="Ticket Count"
+                    name="ticketCount"
+                    className={createEventStyles["input-count"]}
+                    value={formData.ticketCount}
+                    onChange={handleChange}
+                />
 
-            <input type="number"
-                placeholder="Ticket Price"
-                name="ticketPrice"
-                className={createEventStyles["input-price"]}
-                value={formData.ticketPrice}
-                onChange={handleChange} 
-            />
+                <input type="number"
+                    placeholder="Ticket Price"
+                    name="ticketPrice"
+                    className={createEventStyles["input-price"]}
+                    value={formData.ticketPrice}
+                    onChange={handleChange}
+                />
 
-            <button className={createEventStyles["create-button"]} onClick={createEvent}>Create Event</button>
-
-        </div>
+                <button className={createEventStyles["create-button"]} onClick={createEvent}>Create Event</button>
+            </div>
+            {/* 6. Include the ToastContainer so toast notifications can appear */}
+            <ToastContainer position="top-right" autoClose={3000} />
+        </>
     );
 
 }

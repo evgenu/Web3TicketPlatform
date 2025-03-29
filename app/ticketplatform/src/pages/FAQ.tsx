@@ -31,7 +31,7 @@ function FAQ() {
 					  blockchain technologies, and token-based economics.</h1>
 			</div>
 			{/* The. button shoult be refactured to lead to the contact page */}
-			<Link to="/" className={FAQstyles["faq-button"]}>
+			<Link to="/contactUs" className={FAQstyles["faq-button"]}>
 				Ask Your Questions Here
 			</Link>
 		</div>

@@ -12,6 +12,8 @@ import { UserProvider } from './hooks/userHook';
 import DisplayEvent from './pages/DisplayEvent';
 import CreateEvent from './pages/CreateEvent';
 import Events from './pages/Events';
+import NotFound from './pages/NotFound'; // <-- Import the NotFound page
+import MyTickets from './pages/MyTickets';
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
               <Route path="/event/:id" element={<DisplayEvent />} />
               <Route path="/events" element={<Events />} />
               <Route path="/createEvent" element={<CreateEvent/>} />
+              <Route path="/myTickets" element={<MyTickets/>} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
            <Footer />
