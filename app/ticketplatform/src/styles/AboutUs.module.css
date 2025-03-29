@@ -139,6 +139,11 @@
   background: #BBDEFB ;
 }
 
+.about-link-styles
+{
+  text-decoration: none;
+}
+
 @media (max-width: 850px) {
 	.team {
     flex-wrap: wrap; 
