@@ -5,8 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser, faTicket, faRectangleList } from '@fortawesome/free-solid-svg-icons';
 import { useContract } from '../hooks/contractHook';
 import { useUser } from '../hooks/userHook';
-import { toast, ToastContainer } from 'react-toastify'; // Import toast functions
-import 'react-toastify/dist/ReactToastify.css'; // Import toast styles
+import { toast } from 'react-toastify';
 import navbarStyles from "../styles/Navbar.module.css";
 import CONTRACT_ABI from '../constants/abis/TicketPlatform.json';
 
@@ -127,15 +126,6 @@ const Navbar = () => {
                     </button>
                 </div>
             </header>
-            <ToastContainer
-                autoClose={2000}
-                closeOnClick
-                pauseOnHover
-                newestOnTop={true}
-                style={{
-                    top: '55px'
-                }}
-            />
         </>
     );
 }

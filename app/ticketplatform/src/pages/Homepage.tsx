@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import homepageStyles from "../styles/Homepage.module.css";
 import { useContract } from "../hooks/contractHook";
 import { Link } from "react-router-dom";
@@ -17,11 +17,10 @@ function Homepage() {
 
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredEvents, setFilteredEvents] = useState<Event[]>([]);
-
     const [showSearchResults, setShowSearchResults] = useState(false);
-
     const [events, setEvents] = useState<Event[]>([]);
     const { contract } = useContract() || {};
+    const searchContainerRef = useRef<HTMLDivElement>(null);
 
     const loadEvents = async () => {
         var i = 1;
@@ -50,7 +49,6 @@ function Homepage() {
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(event.target.value);
-        console.log(event.target.value);
     };
 
     const handleInputFocus = () => {
@@ -59,10 +57,12 @@ function Homepage() {
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            const searchContainer = document.querySelector(`.${homepageStyles["search-event-container"]}`);
-            if (searchContainer && !searchContainer.contains(event.target as Node)) {
-                setShowSearchResults(false);
-            }
+                if (
+                    searchContainerRef.current &&
+                    !searchContainerRef.current.contains(event.target as Node)
+                ) {
+                    setShowSearchResults(false);
+                }
         };
 
         document.addEventListener("click", handleClickOutside);
@@ -75,7 +75,7 @@ function Homepage() {
 
     return (
         <>
-            <div className={homepageStyles["search-event-container"]}>
+            <div className={homepageStyles["search-event-container"]} ref={searchContainerRef}>
                 <input type="text"
                     placeholder="Search for events"
                     className={homepageStyles["search-event"]}

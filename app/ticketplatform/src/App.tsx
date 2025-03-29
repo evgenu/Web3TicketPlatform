@@ -12,8 +12,10 @@ import { UserProvider } from './hooks/userHook';
 import DisplayEvent from './pages/DisplayEvent';
 import CreateEvent from './pages/CreateEvent';
 import Events from './pages/Events';
-import NotFound from './pages/NotFound'; // <-- Import the NotFound page
+import NotFound from './pages/NotFound';
 import MyTickets from './pages/MyTickets';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -39,6 +41,15 @@ function App() {
            <Footer />
          </UserProvider>
       </ContractProvider>
+      <ToastContainer
+                autoClose={2000}
+                closeOnClick
+                pauseOnHover
+                newestOnTop
+                style={{
+                    top: '55px'
+                }}
+            />
       </Router>
     </>
   );

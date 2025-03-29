@@ -3,7 +3,7 @@ import { useContract } from '../hooks/contractHook';
 import createEventStyles from '../styles/CreateEvent.module.css';
 
 // 
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 interface Event {
@@ -144,7 +144,6 @@ const CreateEvent = () => {
                 <button className={createEventStyles["create-button"]} onClick={createEvent}>Create Event</button>
             </div>
             {/* 6. Include the ToastContainer so toast notifications can appear */}
-            <ToastContainer position="top-right" autoClose={3000} />
         </>
     );
 

@@ -56,8 +56,9 @@ function ProfileTickets() {
 				<p>You have no tickets.</p>
 			) : (
 				<div>
-					{tickets.map((ticket) => (
+					{tickets.map((ticket, i) => (
 						<DisplayTicket
+							key={i}
 							name={ticket.eventName}
 							date={new Date(Number(ticket.eventDate) * 1000).toLocaleDateString()}
 							description={ticket.eventDescription}
