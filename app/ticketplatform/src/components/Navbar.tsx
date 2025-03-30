@@ -106,15 +106,24 @@ const Navbar = () => {
                     </ul>
                 </nav>
 
-
                 <div className={navbarStyles['navbar-controls']}>
-                    <button className={navbarStyles['login-button']} onClick={handleConnectWallet}>
-
-                        <p className={navbarStyles['login-text']}>
-                            {contractContext?.contract ? `${userAddress?.slice(0, 11)}...` : 'Connect Wallet'}
-                        </p>
-                        <FontAwesomeIcon className={navbarStyles['login-image']} icon={faCircleUser} />
-                    </button>
+                    {user != null && userAddress != null ? (
+                        <NavLink to='/myTickets' className={navbarStyles['navbar-my-tickets']}>
+                            <button className={navbarStyles['login-button']}>
+                                <p className={navbarStyles['login-text']}>
+                                    {contractContext?.contract ? `${userAddress?.slice(0, 11)}...` : 'Connect Wallet'}
+                                </p>
+                                <FontAwesomeIcon className={navbarStyles['login-image']} icon={faCircleUser} />
+                            </button>
+                        </NavLink>
+                    ) : (
+                        <button className={navbarStyles['login-button']} onClick={handleConnectWallet}>
+                            <p className={navbarStyles['login-text']}>
+                                {contractContext?.contract ? `${userAddress?.slice(0, 11)}...` : 'Connect Wallet'}
+                            </p>
+                            <FontAwesomeIcon className={navbarStyles['login-image']} icon={faCircleUser} />
+                        </button>
+                    )}
 
                     <button
                         aria-expanded={menuOpen}
