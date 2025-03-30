@@ -1,0 +1,32 @@
+.main-heading_page_ticket {
+  text-align: center;
+  font-size: var(--text-4xl);
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.second-heading-page_ticket {
+	text-align: center;
+	font-size:var(--text-2xl);
+	margin-bottom: 10px;
+	color: var(--text-color);
+}
+
+.paragraph-page-ticket {
+	text-align: center;
+	font-size: var(--text-base);
+	margin-bottom: 20px;
+	color: var(--text-color);
+}
+
+.my-tickets-components{
+	display: flex;
+	width: 100%;
+	/* justify-content: center; */
+	gap: 10px;
+	margin-bottom: 10px;
+	flex-wrap: wrap;
+
+	margin-right: 30px;
+	/* flex-direction: column; */
+}

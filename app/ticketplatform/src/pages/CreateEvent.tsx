@@ -80,6 +80,15 @@ const CreateEvent = () => {
                 ticketPrice
             );
             toast.success('Event created successfully!');
+
+            // Clear the form inputs after successful creation
+            setFormData({
+                name: '',
+                description: '',
+                date: '',
+                ticketCount: '',
+                ticketPrice: ''
+            });
         } catch (error: any) {
             if (error.action === 'sendTransaction' && error.reason === 'rejected') {
                 toast.info('Transaction rejected by user');
