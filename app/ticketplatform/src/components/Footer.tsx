@@ -63,7 +63,12 @@ const Footer = () => {
 								</Link>
 							</li>
 							<li className={footerStyles["footer-list"]}>
-								<Link className={footerStyles["footer-links"]} to="/tickets">
+								<Link className={footerStyles["footer-links"]} to="/contactUs">
+									Contact Us
+								</Link>
+							</li>
+							<li className={footerStyles["footer-list"]}>
+								<Link className={footerStyles["footer-links"]} to="/myTickets">
 									My Tickets
 								</Link>
 							</li>

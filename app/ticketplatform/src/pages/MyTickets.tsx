@@ -61,10 +61,10 @@ function MyTickets() {
 
     return (
         <div>
-            <h1 className={myTicketsStyles["main-heading_page_ticket"]}>My Tickets</h1>
+            <h1 className={myTicketsStyles["main-heading-page-ticket"]}>My Tickets</h1>
 
             {/* Upcoming Events Section */}
-            <h2 className={myTicketsStyles["second-heading-page_ticket"]}>Upcoming Events</h2>
+            <h2 className={myTicketsStyles["second-heading-page-ticket"]}>Upcoming Events</h2>
             {upcomingTickets.length === 0 ? (
                 <p className={myTicketsStyles["paragraph-page-ticket"]}>You have no upcoming tickets.</p>
             ) : (
@@ -81,7 +81,7 @@ function MyTickets() {
             )}
 
             {/* Past Events Section */}
-            <h2 className={myTicketsStyles["second-heading-page_ticket"]}>Past Events</h2>
+            <h2 className={myTicketsStyles["second-heading-page-ticket"]}>Past Events</h2>
             {pastTickets.length === 0 ? (
                 <p className={myTicketsStyles["paragraph-page-ticket"]}>You have no past tickets.</p>
             ) : (

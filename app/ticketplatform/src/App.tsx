@@ -17,11 +17,13 @@ import MyTickets from './pages/MyTickets';
 import { ToastContainer } from 'react-toastify';
 import { EventListProvider } from './hooks/eventListHook';
 import 'react-toastify/dist/ReactToastify.css';
+import ScrollToTop from './ScrollToTop';
 
 function App() {
   return (
     <>
       <Router>
+      <ScrollToTop />
         <ContractProvider>
           <UserProvider>
             <EventListProvider>
