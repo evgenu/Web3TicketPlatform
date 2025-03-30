@@ -20,3 +20,31 @@
     font-size: var(--text-lg);
     color: white;
 }
+
+.create-event-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.create-event-button {
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--button-color);
+    border-radius: 0.3rem;
+    color: white;
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.create-event-button:hover {
+    background-color: hsla(207, 90%, 61%, 0.73);
+}

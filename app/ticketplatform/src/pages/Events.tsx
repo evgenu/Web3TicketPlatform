@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Contract } from "ethers";
 import { toast } from "react-toastify";
+import createEventStyle from "../styles/CreateEvent.module.css";
 
 const Events = () => {
 
@@ -37,12 +38,19 @@ const Events = () => {
     return (
         <>
 
-        {
-            contAddr == usrAddr ? <Link to={"/createEvent"}>Create Event</Link> : <></>
-        }
+            {
+                contAddr == usrAddr ?
+                    <div className={createEventStyle["create-event-button-container"]}>
+                        <Link to={"/createEvent"} className={createEventStyle["create-event-button"]}>
+                            Create Event
+                        </Link>
+                    </div>
+                    :
+                    <></>
+            }
 
-        <EventList />
-        
+            <EventList />
+
         </>
     )
 }
