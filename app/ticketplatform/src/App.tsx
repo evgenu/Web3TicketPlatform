@@ -15,41 +15,44 @@ import Events from './pages/Events';
 import NotFound from './pages/NotFound';
 import MyTickets from './pages/MyTickets';
 import { ToastContainer } from 'react-toastify';
+import { EventListProvider } from './hooks/eventListHook';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <>
       <Router>
-      <ContractProvider>
-        <UserProvider>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/about" element={<AboutUs />} />
-              <Route path="/faq" element={<FAQ />} />
-              {/* Add more routes as needed */}
-              <Route path="/contactUs" element={<Contacts />} />
-              {/* <Route path="/events/" element={<Event />} /> */}
-              <Route path="/event/:id" element={<DisplayEvent />} />
-              <Route path="/events" element={<Events />} />
-              <Route path="/createEvent" element={<CreateEvent/>} />
-              <Route path="/myTickets" element={<MyTickets/>} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Layout>
-           <Footer />
-         </UserProvider>
-      </ContractProvider>
-      <ToastContainer
-                autoClose={2000}
-                closeOnClick
-                pauseOnHover
-                newestOnTop
-                style={{
-                    top: '55px'
-                }}
-            />
+        <ContractProvider>
+          <UserProvider>
+            <EventListProvider>
+              <Layout>
+                <Routes>
+                  <Route path="/" element={<Homepage />} />
+                  <Route path="/about" element={<AboutUs />} />
+                  <Route path="/faq" element={<FAQ />} />
+                  {/* Add more routes as needed */}
+                  <Route path="/contactUs" element={<Contacts />} />
+                  {/* <Route path="/events/" element={<Event />} /> */}
+                  <Route path="/event/:id" element={<DisplayEvent />} />
+                  <Route path="/events" element={<Events />} />
+                  <Route path="/createEvent" element={<CreateEvent />} />
+                  <Route path="/myTickets" element={<MyTickets />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </Layout>
+              <Footer />
+            </EventListProvider>
+          </UserProvider>
+        </ContractProvider>
+        <ToastContainer
+          autoClose={2000}
+          closeOnClick
+          pauseOnHover
+          newestOnTop
+          style={{
+            top: '55px'
+          }}
+        />
       </Router>
     </>
   );

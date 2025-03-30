@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useContract } from "../hooks/contractHook";
 import HotEventCard from "./HotEventCard";
 import eventListStyles from "../styles/EventList.module.css";
+import { useEventList } from "../hooks/eventListHook";
 
 interface Event {
     name: string;
@@ -14,10 +15,12 @@ interface Event {
 }
 
 const EventList = () => {
-    const [events, setEvents] = useState<Event[]>([]);
+    const eventList = useEventList();
+    
     const { contract } = useContract() || {};
 
     const loadEvents = async () => {
+        if ( eventList.eventList.length > 0 ) return;
         let i = 1;
         const currentTimestamp = Math.floor(Date.now() / 1000); // Current time in seconds
         const upcomingEvents: Event[] = [];
@@ -25,15 +28,11 @@ const EventList = () => {
         while (true) {
             const event = contract ? await contract.getEventDetails(i) : null;
             if (!event || event.name === '') break;
-
-            // Only add events with a future date
-            if (event.date >= currentTimestamp) {
-                upcomingEvents.push(event);
-            }
+            upcomingEvents.push(event);
             i++;
         }
 
-        setEvents(upcomingEvents);
+        eventList.setEventList(upcomingEvents);
     };
 
     useEffect(() => {
@@ -43,7 +42,7 @@ const EventList = () => {
     return (
         <>
             <div className={eventListStyles["hot-events-container"]}>
-                {events.map((event, i) => (
+                {eventList.eventList.map((event, i) => ( event.date > Math.floor(Date.now() / 1000) ) && (
                     <HotEventCard
                         key={i}
                         id={i + 1}
