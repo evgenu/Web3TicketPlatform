@@ -4,6 +4,7 @@ import { useUser } from "../hooks/userHook";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Contract } from "ethers";
+import { toast } from "react-toastify";
 
 const Events = () => {
 
@@ -14,15 +15,23 @@ const Events = () => {
     const [usrAddr, setUsrAddr] = useState<string>('');
 
     useEffect(() => {
-        contract?.contract?.owner().then((res) => {
-            setContractAddr(res);
-        }
-        );
+        contract?.contract?.owner()
+            .then((res) => {
+                setContractAddr(res);
+            })
+            .catch((err) => {
+                console.error("Error fetching contract owner:", err);
+                toast.error("Failed to fetch contract owner.", { toastId: "contract-owner-error" });
+            });
 
-        user?.user?.getAddress().then((res) => {
-            setUsrAddr(res);
-        }
-        );
+        user?.user?.getAddress()
+            .then((res) => {
+                setUsrAddr(res);
+            })
+            .catch((err) => {
+                console.error("Error fetching user address:", err);
+                toast.error("Failed to fetch user address.", { toastId: "user-address-error" });
+            });
     }, [contract, user]);
 
     return (

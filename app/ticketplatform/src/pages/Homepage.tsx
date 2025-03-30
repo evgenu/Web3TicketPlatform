@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import homepageStyles from "../styles/Homepage.module.css";
 import { useContract } from "../hooks/contractHook";
 import { Link } from "react-router-dom";
+import { useEventList } from "../hooks/eventListHook";
+import { toast } from "react-toastify";
 
 interface Event {
     name: string;
@@ -18,20 +20,30 @@ function Homepage() {
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredEvents, setFilteredEvents] = useState<Event[]>([]);
     const [showSearchResults, setShowSearchResults] = useState(false);
-    const [events, setEvents] = useState<Event[]>([]);
+
     const { contract } = useContract() || {};
     const searchContainerRef = useRef<HTMLDivElement>(null);
 
+    const eventList = useEventList();
+
     const loadEvents = async () => {
-        var i = 1;
-        setEvents([]);
-        while (true) {
-            const event = contract ? await contract.getEventDetails(i) : null;
-            if (!event) break;
-            if (event.name === '') break;
-            setEvents(prevEvents => [...prevEvents, event]);
-            i++;
-        }
+        if (eventList.eventList.length > 0) return;
+                let i = 1;
+                const currentTimestamp = Math.floor(Date.now() / 1000); // Current time in seconds
+                const upcomingEvents: Event[] = [];
+        
+                try {
+                    while (true) {
+                        const event = contract ? await contract.getEventDetails(i) : null;
+                        if (!event || event.name === '') break;
+                        upcomingEvents.push(event);
+                        i++;
+                    }
+        
+                    eventList.setEventList(upcomingEvents);
+                } catch (error) {
+                    toast.error(error as string, { toastId: "failed-loading-events" });
+                }
     };
 
     useEffect(() => {
@@ -41,28 +53,40 @@ function Homepage() {
     // Filter events in real-time as the user types
     useEffect(() => {
         setFilteredEvents(
-            events.filter(event =>
+            eventList.eventList.filter(event =>
                 event.name.toLowerCase().includes(searchTerm.toLowerCase())
             )
         );
-    }, [searchTerm, events]);
+    }, [searchTerm, eventList.eventList]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchTerm(event.target.value);
+        try {
+            setSearchTerm(event.target.value);
+        } catch (error) {
+            toast.error("An error occurred while updating the search term.", { toastId: "input-change-error" });
+        }
     };
 
     const handleInputFocus = () => {
-        setShowSearchResults(true);
+        try {
+            setShowSearchResults(true);
+        } catch (error) {
+            toast.error("An error occurred while focusing on the input.", { toastId: "input-focus-error" });
+        }
     };
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
+            try {
                 if (
                     searchContainerRef.current &&
                     !searchContainerRef.current.contains(event.target as Node)
                 ) {
                     setShowSearchResults(false);
                 }
+            } catch (error) {
+                toast.error("An error occurred while handling outside click.", { toastId: "click-outside-error" });
+            }
         };
 
         document.addEventListener("click", handleClickOutside);
