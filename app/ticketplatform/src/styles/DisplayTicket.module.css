@@ -1,56 +1,69 @@
-.card-merch-display{ 
+.card-ticket-display{ 
 	display: flex; 
 	/* justify-content: center;  */
 	gap: 30px;
 	margin-left: 30px;
 	margin-bottom: 30px; 
+
+	width: 100%;
+	max-width: 300px;
 }
 
-.card-merch {
+.card-ticket {
 	background-color: hsl(207, 90%, 77%);
 	/* padding: 20px; */
 	border-radius: 50px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 	text-align: center;
 	width: 100%;
-	max-width: 300px;
+
+	/* Provide enough space so that the icon is fully inside */
+	padding-top: 3rem;  
+	padding-bottom: 1.5rem; 
+
+	min-height: 180px;
 
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card-merch:hover {
+.card-ticket:hover {
 	transform: scale(1.05);
 	background-color: hsl(207, 89%, 86%);
 }
 
-.card-merch:hover h3{
-	color: #42A5F5;
-}
-
-.card-merch:hover p{
+.card-ticket:hover h3{
 	color: #42A5F5;
 }
 
 
-.card-merch-img {
-	width: 90%;
-	border-radius: 50%;
-	margin-bottom: 1px;
-	transition: transform 0.3s ease;
-	margin-left: 15%;
+.card-ticket:hover p{
+	color: #42A5F5;
 }
 
-.card-merch-h3 {
+.card-ticket-h3 {
 	font-size: 1.3em;
 	color: hsl(0, 0%, 100%);
 	/* transition: color 0.3s ease; */
 	margin-bottom: 5%;
 }
 
-.card-merch-p {
+.card-ticket-p {
 	font-size: 1em;
 	color: hsl(0, 0%, 100%);
 	font-weight: 300;
 	margin-left: 15%;
 	margin-right: 15%;
+}
+
+.card-ticket-description{
+	color: hsl(0, 0%, 100%);
+}
+
+.ticket-logo {
+	font-size: var(--text-sm); /* увеличено, но адаптивно */
+	color: var(--icons-color);
+	transform: translateY(2px);
+	scale: 500%;
+
+	padding-bottom: 0.7em;
 }
