@@ -27,7 +27,7 @@ const EventList = () => {
             if (!event || event.name === '') break;
 
             // Only add events with a future date
-            if (event.date >= currentTimestamp) {
+            if (event.date >= currentTimestamp && event.ticketSold < event.ticketCount) {
                 upcomingEvents.push(event);
             }
             i++;
