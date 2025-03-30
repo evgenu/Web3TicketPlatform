@@ -5,7 +5,7 @@
   --icons-color: hsl(207, 73%, 39%);
   --border-color: hsl(0, 0%, 55%);
   --button-color: hsl(207, 90%, 61%);
-  --button-hover-color: hsla(207, 90%, 61%, 0.511);
+  --button-hover-color: hsla(207, 90%, 61%, 0.73);
   --text-color: hsl(207, 90%, 61%);
   
   /* 🔠 Fluid Font Sizes (измерени в clamp) */
