@@ -18,46 +18,36 @@ interface Event {
 function Homepage() {
 
     const [searchTerm, setSearchTerm] = useState('');
-    const [filteredEvents, setFilteredEvents] = useState<Event[]>([]);
     const [showSearchResults, setShowSearchResults] = useState(false);
 
-    const { contract } = useContract() || {};
     const searchContainerRef = useRef<HTMLDivElement>(null);
 
     const eventList = useEventList();
+    const { contract } = useContract() || {};
 
     const loadEvents = async () => {
         if (eventList.eventList.length > 0) return;
-                let i = 1;
-                const currentTimestamp = Math.floor(Date.now() / 1000); // Current time in seconds
-                const upcomingEvents: Event[] = [];
-        
-                try {
-                    while (true) {
-                        const event = contract ? await contract.getEventDetails(i) : null;
-                        if (!event || event.name === '') break;
-                        upcomingEvents.push(event);
-                        i++;
-                    }
-        
-                    eventList.setEventList(upcomingEvents);
-                } catch (error) {
-                    toast.error(error as string, { toastId: "failed-loading-events" });
-                }
+        let i = 1;
+        const upcomingEvents: Event[] = [];
+
+        try {
+            while (true) {
+                const event = contract ? await contract.getEventDetails(i) : null;
+                if (!event || event.name === '') break; 
+                upcomingEvents.push(event);
+                i++;
+            }
+
+            eventList.setEventList(upcomingEvents); 
+        } catch (error) {
+            console.error("Error loading events:", error);
+            toast.error("Failed to load events. Please try again later.", { toastId: "failed-loading-events" });
+        }
     };
 
     useEffect(() => {
         loadEvents();
     }, [contract]);
-
-    // Filter events in real-time as the user types
-    useEffect(() => {
-        setFilteredEvents(
-            eventList.eventList.filter(event =>
-                event.name.toLowerCase().includes(searchTerm.toLowerCase())
-            )
-        );
-    }, [searchTerm, eventList.eventList]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         try {
@@ -107,19 +97,28 @@ function Homepage() {
                     onFocus={handleInputFocus}
                 />
 
-                {showSearchResults && filteredEvents.length > 0 && (
+                {showSearchResults && (
                     <div className={homepageStyles["search-content-container"]}>
-                        {filteredEvents.map((event, index) => (
-                            <li key={index} className={homepageStyles["content-list"]}>
-                                <Link
-                                    to={`/event/${index + 1}`} // Pass the event index or ID in the URL
-                                    state={{ id: index }} // Pass the ID via state (optional, but useful for additional data)
-                                    className={homepageStyles["content-link"]}
-                                >
-                                    {event.name}
-                                </Link>
-                            </li>
-                        ))}
+                        {eventList.eventList
+                            .filter(event =>
+                                event.name.toLowerCase().includes(searchTerm.toLowerCase())
+                            )
+                            .map((event, index) => (event.date > Math.floor(Date.now() / 1000) && event.ticketSold < event.ticketCount) && (
+                                <li key={index} className={homepageStyles["content-list"]}>
+                                    <Link
+                                        to={`/event/${index + 1}`} // Pass the event index or ID in the URL
+                                        state={{ id: index }} // Pass the ID via state
+                                        className={homepageStyles["content-link"]}
+                                    >
+                                        {event.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        {eventList.eventList.filter(event =>
+                            event.name.toLowerCase().includes(searchTerm.toLowerCase())
+                        ).length === 0 && (
+                                <p className={homepageStyles["no-results"]}>No events found</p>
+                            )}
                     </div>
                 )}
             </div>
