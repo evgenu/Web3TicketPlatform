@@ -5,6 +5,7 @@ import { useContract } from '../hooks/contractHook';
 import { useUser } from '../hooks/userHook';
 import DisplayTicket from '../components/DisplayTicket';
 import myTicketsStyles from '../styles/MyTickets.module.css';
+import { toast } from 'react-toastify';
 
 interface Ticket {
     ticketId: number;
@@ -51,7 +52,7 @@ function MyTickets() {
             setUpcomingTickets(upcoming);
             setPastTickets(past);
         } catch (error) {
-            console.error("Error loading tickets", error);
+            toast.error(error as string, { toastId: "failed-loading-tickets" });
         }
     };
 
