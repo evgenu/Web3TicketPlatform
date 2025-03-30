@@ -4,71 +4,100 @@ import { Link } from "react-router-dom";
 import { useContract } from '../hooks/contractHook';
 import { useUser } from '../hooks/userHook';
 import DisplayTicket from '../components/DisplayTicket';
+import myTicketsStyles from '../styles/MyTickets.module.css';
 
 interface Ticket {
-	ticketId: number
-	eventId: number
-	eventName: string
-	eventDate: number
-	eventDescription: string
+    ticketId: number;
+    eventId: number;
+    eventName: string;
+    eventDate: number;
+    eventDescription: string;
 }
 
-function ProfileTickets() {
-	const [tickets, setTickets] = useState<Ticket[]>([]);
-	const { contract } = useContract() || {};
-	const { user } = useUser() || {};
+function MyTickets() {
+    const [tickets, setTickets] = useState<Ticket[]>([]);
+    const [upcomingTickets, setUpcomingTickets] = useState<Ticket[]>([]);
+    const [pastTickets, setPastTickets] = useState<Ticket[]>([]);
+    const { contract } = useContract() || {};
+    const { user } = useUser() || {};
 
-	const loadTickets = async () => {
-		if (!contract || !user) return;
-		try {
-			const userAddress = await user.getAddress();
-			const ticketCount = await contract.balanceOf(userAddress);
-			const userTickets: Ticket[] = [];
+    const loadTickets = async () => {
+        if (!contract || !user) return;
+        try {
+            const userAddress = await user.getAddress();
+            const ticketCount = await contract.balanceOf(userAddress);
+            const userTickets: Ticket[] = [];
 
-			for (let i = 0; i < ticketCount; i++) {
-				const ticketId = await contract.tokenOfOwnerByIndex(userAddress, i);
-				const eventId = await contract.ticketEvent(ticketId);
-				const eventDetails = await contract.getEventDetails(eventId);
+            for (let i = 0; i < ticketCount; i++) {
+                const ticketId = await contract.tokenOfOwnerByIndex(userAddress, i);
+                const eventId = await contract.ticketEvent(ticketId);
+                const eventDetails = await contract.getEventDetails(eventId);
 
-				userTickets.push({
-					ticketId: ticketId,
-					eventId: eventId,
-					eventName: eventDetails[0],
-					eventDescription: eventDetails[1],
-					eventDate: eventDetails[2]
-				});
-			}
-			setTickets(userTickets);
-		} catch (error) {
-			console.error("Error loading tickets", error)
-		}
-	};
+                userTickets.push({
+                    ticketId: ticketId,
+                    eventId: eventId,
+                    eventName: eventDetails[0],
+                    eventDescription: eventDetails[1],
+                    eventDate: eventDetails[2],
+                });
+            }
 
-	useEffect(() => {
-		loadTickets();
-	}, [contract, user])
+            // Separate tickets into upcoming and past
+            const currentTimestamp = Math.floor(Date.now() / 1000); // Current time in seconds
+            const upcoming = userTickets.filter(ticket => ticket.eventDate >= currentTimestamp);
+            const past = userTickets.filter(ticket => ticket.eventDate < currentTimestamp);
 
-	return (
-		<div>
-			<h1>My tickets</h1>
+            setTickets(userTickets);
+            setUpcomingTickets(upcoming);
+            setPastTickets(past);
+        } catch (error) {
+            console.error("Error loading tickets", error);
+        }
+    };
 
-			{tickets.length === 0 ? (
-				<p>You have no tickets.</p>
-			) : (
-				<div>
-					{tickets.map((ticket, i) => (
-						<DisplayTicket
-							key={i}
-							name={ticket.eventName}
-							date={new Date(Number(ticket.eventDate) * 1000).toLocaleDateString()}
-							description={ticket.eventDescription}
-						/>
-					))};
-				</div>
-			)}
-		</div>
+    useEffect(() => {
+        loadTickets();
+    }, [contract, user]);
 
-	);
-};
+    return (
+        <div>
+            <h1 className={myTicketsStyles["main-heading_page_ticket"]}>My Tickets</h1>
 
-export default ProfileTickets;
+            {/* Upcoming Events Section */}
+            <h2 className={myTicketsStyles["second-heading-page_ticket"]}>Upcoming Events</h2>
+            {upcomingTickets.length === 0 ? (
+                <p className={myTicketsStyles["paragraph-page-ticket"]}>You have no upcoming tickets.</p>
+            ) : (
+                <div className={myTicketsStyles["my-tickets-components"]}>
+                    {upcomingTickets.map((ticket, i) => (
+                        <DisplayTicket
+                            key={i}
+                            name={ticket.eventName}
+                            date={new Date(Number(ticket.eventDate) * 1000).toLocaleDateString()}
+                            description={ticket.eventDescription}
+                        />
+                    ))}
+                </div>
+            )}
+
+            {/* Past Events Section */}
+            <h2 className={myTicketsStyles["second-heading-page_ticket"]}>Past Events</h2>
+            {pastTickets.length === 0 ? (
+                <p className={myTicketsStyles["paragraph-page-ticket"]}>You have no past tickets.</p>
+            ) : (
+                <div className={myTicketsStyles["my-tickets-components"]}>
+                    {pastTickets.map((ticket, i) => (
+                        <DisplayTicket
+                            key={i}
+                            name={ticket.eventName}
+                            date={new Date(Number(ticket.eventDate) * 1000).toLocaleDateString()}
+                            description={ticket.eventDescription}
+                        />
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+}
+
+export default MyTickets;
