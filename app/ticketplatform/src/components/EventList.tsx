@@ -23,7 +23,6 @@ const EventList = () => {
     const loadEvents = async () => {
         if (eventList.eventList.length > 0) return;
         let i = 1;
-        const currentTimestamp = Math.floor(Date.now() / 1000); // Current time in seconds
         const upcomingEvents: Event[] = [];
 
         try {
@@ -47,7 +46,7 @@ const EventList = () => {
     return (
         <>
             <div className={eventListStyles["hot-events-container"]}>
-                {eventList.eventList.map((event, i) => ( event.date > Math.floor(Date.now() / 1000) ) && (
+                {eventList.eventList.map((event, i) => ( event.date > Math.floor(Date.now() / 1000) && event.ticketSold < event.ticketCount) && (
                     <HotEventCard
                         key={i}
                         id={i + 1}

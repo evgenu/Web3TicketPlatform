@@ -89,6 +89,10 @@
     color: var(--icons-color);
 }
 
+.navbar-my-tickets {
+    text-decoration: none;
+}
+
 /* 📱 480px: Mobile devices */
 @media (max-width: 768px) {
     .home-link-container {
