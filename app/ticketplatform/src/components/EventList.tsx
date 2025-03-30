@@ -3,7 +3,6 @@ import { useContract } from "../hooks/contractHook";
 import HotEventCard from "./HotEventCard";
 import eventListStyles from "../styles/EventList.module.css";
 import { useEventList } from "../hooks/eventListHook";
-import { toast } from "react-toastify";
 
 interface Event {
     name: string;
@@ -21,23 +20,19 @@ const EventList = () => {
     const { contract } = useContract() || {};
 
     const loadEvents = async () => {
-        if (eventList.eventList.length > 0) return;
+        if ( eventList.eventList.length > 0 ) return;
         let i = 1;
         const currentTimestamp = Math.floor(Date.now() / 1000); // Current time in seconds
         const upcomingEvents: Event[] = [];
 
-        try {
-            while (true) {
-                const event = contract ? await contract.getEventDetails(i) : null;
-                if (!event || event.name === '') break;
-                upcomingEvents.push(event);
-                i++;
-            }
-
-            eventList.setEventList(upcomingEvents);
-        } catch (error) {
-            toast.error(error as string, { toastId: "failed-loading-events" });
+        while (true) {
+            const event = contract ? await contract.getEventDetails(i) : null;
+            if (!event || event.name === '') break;
+            upcomingEvents.push(event);
+            i++;
         }
+
+        eventList.setEventList(upcomingEvents);
     };
 
     useEffect(() => {
