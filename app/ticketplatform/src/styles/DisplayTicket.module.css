@@ -21,7 +21,10 @@
 	padding-top: 3rem;  
 	padding-bottom: 1.5rem; 
 
-	min-height: 180px;
+	max-height: 200px;
+	min-height: 200px;
+
+	overflow: scroll;
 
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
