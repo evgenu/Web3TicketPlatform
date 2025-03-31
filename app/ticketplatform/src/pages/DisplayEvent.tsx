@@ -24,7 +24,7 @@ const DisplayEvent = () => {
         const loadEvents = async () => {
             try {
                 if (!contract?.contract) {
-                    toast.error('Contract not loaded', { toastId: "contract-not-loaded" }); 
+                    toast.error('Contract not loaded', { toastId: "contract-not-loaded" });
                     return;
                 }
 

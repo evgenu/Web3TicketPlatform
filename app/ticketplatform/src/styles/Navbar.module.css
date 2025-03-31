@@ -11,7 +11,6 @@
     overflow-x: hidden;
 }
 
-/* Logo and name container */
 .home-link-container {
     display: flex;
     justify-content: center;
@@ -22,19 +21,18 @@
 }
 
 .logo {
-    font-size: var(--text-3xl); /* по-голямо, но адаптивно */
+    font-size: var(--text-3xl);
     color: var(--icons-color);
     transform: translateY(2px);
 }
 
 .logo-text {
-    font-size: var(--text-3xl); /* заглавие */
+    font-size: var(--text-3xl);
     font-weight: var(--font-bold);
     color: white;
     margin: 0;
 }
 
-/* Navigation container */
 .mobile-nav-toggle {
     display: none;
 }
@@ -63,7 +61,6 @@
     cursor: pointer;
 }
 
-/* Login container */
 .login-button {
     display: flex;
     flex-direction: row;
@@ -93,7 +90,6 @@
     text-decoration: none;
 }
 
-/* 📱 480px: Mobile devices */
 @media (max-width: 768px) {
     .home-link-container {
         gap: 0.25rem;
@@ -159,7 +155,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 1rem;    
+        gap: 1rem;
     }
 
     .login-image {
@@ -167,9 +163,8 @@
         height: auto;
     }
 }
-  
-  /* 💻 769px – 1024px: Small screens, laptops */
-  @media (min-width: 769px) and (max-width: 1024px) {
+
+@media (min-width: 769px) and (max-width: 1024px) {
     .home-link-container {
         gap: 0.25rem;
     }
@@ -190,14 +185,4 @@
         width: var(--text-2xl);
         height: auto;
     }
-  }
-  
-  /* 🖥️ 1025px – 1200px: Desktops, large screens */
-  /* @media (min-width: 1025px) and (max-width: 1200px) {
-   
-  } */
-  
-  /* 🖥️📺 1201px+: Extra large screens, TVs */
-  /* @media (min-width: 1201px) {
-    
-  } */
+}

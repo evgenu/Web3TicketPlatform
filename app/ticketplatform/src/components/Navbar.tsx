@@ -18,13 +18,11 @@ const Navbar = () => {
 
     const handleConnectWallet = async () => {
         try {
-            // Check if the wallet is already connected
             if (userAddress) {
                 toast.info('Wallet is already connected.', { toastId: 'wallet--already-connected' });
                 return;
             }
 
-            // Check if MetaMask is installed
             if ((window as any).ethereum == null) {
                 throw new Error('MetaMask is not installed. Please install MetaMask to connect your wallet.');
             }
@@ -35,7 +33,6 @@ const Navbar = () => {
             const contractAddress = "0x12dd4647bF90B39998bC4CB893FC1f96bE27ECc5";
             const currContract = new ethers.Contract(contractAddress, CONTRACT_ABI.abi, signer);
 
-            // Check on which netwrok the user is
             const network = await provider.getNetwork();
             const expectedChainId = 11155111;
             if (network.chainId !== BigInt(expectedChainId)) {
@@ -47,15 +44,13 @@ const Navbar = () => {
                 contractContext.setContract(currContract);
                 user.setUser(signer);
                 setUserAddress(await signer.getAddress());
-                toast.success('Wallet connected successfully!', { toastId: 'wallet-success' }); // Success toast
+                toast.success('Wallet connected successfully!', { toastId: 'wallet-success' });
             }
 
         } catch (error: any) {
             if (error.code === 4001) {
-                // User rejected the connection request
                 toast.error('Wallet connection request was rejected.', { toastId: 'wallet-rejected' });
             } else {
-                // Generic error handling
                 console.error('Error connecting wallet:', error);
                 toast.error(error.message || 'An unexpected error occurred while connecting the wallet.', { toastId: 'generic-error' });
             }
@@ -63,7 +58,6 @@ const Navbar = () => {
     }
 
     const toggleMenu = () => {
-        // Flip the "menuOpen" boolean in state
         setMenuOpen(prev => !prev);
     };
 

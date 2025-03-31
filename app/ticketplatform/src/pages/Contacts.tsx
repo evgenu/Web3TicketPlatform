@@ -2,7 +2,6 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 import contactStyles from '../styles/Contacts.module.css';
 
-// Define a type for the form data
 type FormData = {
   name: string;
   email: string;
@@ -80,7 +79,6 @@ const Contacts: React.FC = () => {
         ))}
       </div>
 
-      {/* Inquiry Form */}
       <div className={contactStyles["inquiry-form-container"]}>
         <h2>Or ask us directly</h2>
         <form onSubmit={handleSubmit}>

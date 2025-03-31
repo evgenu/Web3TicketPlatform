@@ -28,8 +28,6 @@ const Footer = () => {
 			<div className={footerStyles['footer-container']}>
 				<div className={footerStyles["footer-components"]}>
 
-					{/* Company info setion */}
-
 					<div className={footerStyles['card-footer']}>
 						<img src={logo}
 							className={footerStyles['company-info-img']}
@@ -40,8 +38,6 @@ const Footer = () => {
 							verifiable, and tradeable digital tickets on the blockchain, eliminating fraud and scalping.
 						</p>
 					</div>
-
-					{/* Browse section */}
 
 					<div className={footerStyles['card-footer']}>
 						<h3 className={footerStyles['card-footer-h3']}>Browse</h3>
@@ -75,7 +71,6 @@ const Footer = () => {
 						</ul>
 					</div>
 
-					{/* need to include links for the login and registration pages */}
 					<div className={footerStyles['card-footer']}>
 						<h3 className={footerStyles['card-footer-h3']}>Account</h3>
 						<hr className={footerStyles["hor-line"]}></hr>
@@ -97,9 +92,6 @@ const Footer = () => {
 							</li>
 						</ul>
 					</div>
-
-
-					{/* Contacts section with hypelinks for copying them to the clipboard */}
 
 					<div className={footerStyles["card-footer"]}>
 						<h3 className={footerStyles["card-footer-h3"]}>Contacts</h3>

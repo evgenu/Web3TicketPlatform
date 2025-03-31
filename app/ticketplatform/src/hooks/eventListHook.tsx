@@ -3,13 +3,13 @@ import { ethers } from "ethers";
 import { ReactNode } from "react";
 
 interface Event {
-    name: string;
-    description: string;
-    date: number;
-    organizer: string;
-    ticketCount: number;
-    ticketSold: number;
-    ticketPrice: number;
+  name: string;
+  description: string;
+  date: number;
+  organizer: string;
+  ticketCount: number;
+  ticketSold: number;
+  ticketPrice: number;
 }
 
 interface EventListContextType {
@@ -17,7 +17,7 @@ interface EventListContextType {
   setEventList: React.Dispatch<React.SetStateAction<Event[]>>;
 }
 
-const EventListContext = createContext<EventListContextType>({ eventList: [], setEventList: () => {} });
+const EventListContext = createContext<EventListContextType>({ eventList: [], setEventList: () => { } });
 
 
 interface ContractProviderProps {
