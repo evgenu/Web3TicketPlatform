@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import { ethers } from 'ethers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser, faTicket, faRectangleList } from '@fortawesome/free-solid-svg-icons';
@@ -15,6 +15,7 @@ const Navbar = () => {
     const [userAddress, setUserAddress] = useState<string | null>(null);
     const contractContext = useContract();
     const user = useUser();
+    const location = useLocation();
 
     const handleConnectWallet = async () => {
         try {
@@ -61,6 +62,10 @@ const Navbar = () => {
         setMenuOpen(prev => !prev);
     };
 
+    useEffect(() => {
+        setMenuOpen(false); // Close the menu
+    }, [location]);
+    
     return (
         <>
             <header className={navbarStyles['navbar']}>
