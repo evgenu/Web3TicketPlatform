@@ -63,7 +63,6 @@ const Contacts: React.FC = () => {
       <div className={contactStyles["team"]}>
         {teamMembers.map((member, index) => (
           <div key={index} className={contactStyles["team-member"]}>
-            <img className={contactStyles["team-member-image"]} src="https://placehold.co/150x150" alt="Profile" />
             <h3>{member.name}</h3>
             <p>
               Email:

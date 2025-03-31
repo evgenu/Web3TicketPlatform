@@ -1,15 +1,17 @@
-.main-heading_page_ticket {
+.main-heading-page-ticket {
   text-align: center;
   font-size: var(--text-4xl);
   margin-bottom: 20px;
   color: var(--text-color);
 }
 
-.second-heading-page_ticket {
-	text-align: center;
+.second-heading-page-ticket {
+	text-align: left;
 	font-size:var(--text-2xl);
 	margin-bottom: 10px;
 	color: var(--text-color);
+	padding-bottom: 30px;
+	margin-left: 40px;
 }
 
 .paragraph-page-ticket {
@@ -23,7 +25,7 @@
 	display: flex;
 	width: 100%;
 	/* justify-content: center; */
-	gap: 10px;
+	gap: 30px;
 	margin-bottom: 10px;
 	flex-wrap: wrap;
 
