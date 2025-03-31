@@ -28,8 +28,6 @@ const Footer = () => {
 			<div className={footerStyles['footer-container']}>
 				<div className={footerStyles["footer-components"]}>
 
-					{/* Company info setion */}
-
 					<div className={footerStyles['card-footer']}>
 						<img src={logo}
 							className={footerStyles['company-info-img']}
@@ -41,12 +39,10 @@ const Footer = () => {
 						</p>
 					</div>
 
-					{/* Browse section */}
-
 					<div className={footerStyles['card-footer']}>
 						<h3 className={footerStyles['card-footer-h3']}>Browse</h3>
 						<hr className={footerStyles["hor-line"]}></hr>
-						<ul>
+						<ul className={footerStyles["card-footer-ul"]}>
 							<li className={footerStyles["footer-list"]}>
 								<Link className={footerStyles["footer-links"]} to="/">
 									Home
@@ -73,23 +69,9 @@ const Footer = () => {
 								</Link>
 							</li>
 						</ul>
-					</div>
-
-					{/* need to include links for the login and registration pages */}
-					<div className={footerStyles['card-footer']}>
-						<h3 className={footerStyles['card-footer-h3']}>Account</h3>
-						<hr className={footerStyles["hor-line"]}></hr>
-						<ul>
-							<li className={footerStyles["footer-list"]}>
-								<Link className={footerStyles["footer-links"]} to="/wallet">
-									Connect Wallet
-								</Link>
-							</li>
-						</ul>
-
 						<h3 className={footerStyles['card-footer-h3']}>Other</h3>
 						<hr className={footerStyles["hor-line"]}></hr>
-						<ul>
+						<ul className={footerStyles["card-footer-ul"]}>
 							<li className={footerStyles["footer-list"]}>
 								<Link className={footerStyles["footer-links"]} to="/faq">
 									FAQ
@@ -97,9 +79,6 @@ const Footer = () => {
 							</li>
 						</ul>
 					</div>
-
-
-					{/* Contacts section with hypelinks for copying them to the clipboard */}
 
 					<div className={footerStyles["card-footer"]}>
 						<h3 className={footerStyles["card-footer-h3"]}>Contacts</h3>

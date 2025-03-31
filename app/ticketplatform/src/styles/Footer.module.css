@@ -1,40 +1,15 @@
-/* .strong-heading{
-	color: hsl(217, 91%, 60%)
-} */
-
 .footer-container {
 	text-align: center;
 	padding: 50px;
 	background: #64b5f6;
-
-	/* display: flex;
-	width: 100%; */
-	
-	/* min-height: 600px;
-	max-width: 100%;  */
-	/* padding: min(5em, 8%); */
-
 }
 
 .footer-components{
 	display: flex;
 	justify-content: center;
-	gap: 10px;
+	gap: 20px;
 	justify-content: center;
-    /* align-items: center;  */
-
-	/* flex-wrap: wrap; */
-
-	/* padding: min(5em, 8%); */
-
 }
-
-/* .footer-components{
-	display: grid;
-	gap: 2rem;
-	grid-template-columns: 
-		repeat(auto-fit, minmax(250px, 1fr));
-} */
 
 .card-footer {
 	background-color: hsl(207, 90%, 77%);
@@ -45,11 +20,9 @@
 	width: 300px;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-	/* display: flex; */
     flex-direction: column;
-    align-items: center; /* Centers horizontally */
-    justify-content: center; /* Centers vertically */
-    /* height: 100%; Ensures full height for proper centering */
+    align-items: center;
+    justify-content: center; 
   }
 
 .card-footer-h3 {
@@ -80,21 +53,20 @@
 .footer-list {
     background: none;
 	list-style: none;
-	margin: 10px 0; /* Reduce spacing between list items */
-    padding: 5px 0; /* Minimize internal padding */
+	margin: 10px 0; 
+    padding: 5px 0; 
 }
 
 .footer-list:hover {
     background: none;
 }
 
-
 .footer-links {
     font-size: 16px;
     color: hsl(0, 0%, 100%);
     text-decoration: none;
     font-weight: 300;
-	margin-left: 0%;
+	margin-left: 10px;
 }
 
 .footer-links:hover {
@@ -125,30 +97,26 @@
 .hor-line{
 	border: 1px solid hsl(207, 89%, 68%);
     width: 70%;
-    display: block; /* Ensures it behaves properly */
-    margin-top: 5px;   /* Smaller top margin */
-    margin-bottom: 10px; /* Double the top margin */
+    display: block; 
+    margin-top: 5px;   
+    margin-bottom: 10px; 
     margin-left: 15%;
 }
 
 
-/* Example responsive breakpoints */
-@media (max-width: 1021px) {
+@media (max-width: 1025px) {
 	.footer-components{
 		flex-wrap: wrap;
+		flex-direction: column;
 	}
-  }
-   
-@media (max-width: 789px) {
 	.footer-container {
-		padding: 20px; /* Slightly reduce padding on smaller screens */
-		flex-direction: column; /* Stack the containers vertically */
+		padding: 20px; 
+		flex-direction: column; 
 	}
 
-	/* Stack each card (footer item) at full width */
 	.card-footer {
 		width: 80%;  
-		margin: 10px auto; /* Center the items */
+		margin: 10px auto;
 	}
 
 	.card-footer-h3,
@@ -157,13 +125,19 @@
 		margin-left: 5%;
 		margin-right: 5%;
 		font-size: 1.5em;
-	}
 
+		text-align: center;
+	}
 	.card-footer-img {
-		margin-left: 0;
+		width: 80px; 
+		height: 80px;
 	}
 	.footer-links{
 		font-size: 1.4em;
+
+		margin-left: 0;      
+  		display: inline-block;
+  		text-align: center;
 	}
 
 	.copy-text {
@@ -171,11 +145,31 @@
 		margin-left: 5%;
 		margin-right: 5%;
 	}
-}
 
+	.footer-list {
+		text-align: center; 
+		margin-left: 0;      
+		padding-left: 0;
+	  }
+	
+	.card-footer-ul {
+		padding-left: 0;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.company-info-img {
+		width: 150px;
+		height: 150px;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	  }
+  }
+   
 @media (max-width: 480px) {
 	.card-footer {
-		width: 90%; /* Even narrower for very small screens */
+		width: 90%; 
 	}
 
 	.card-footer-h3 {
