@@ -1,7 +1,6 @@
 .search-event-container {
     position: relative;
-    width: 100%;
-    max-width: 500px;
+    width: clamp(250px, 50%, 500px);
     margin: 3rem auto 1rem auto;
 }
 
