@@ -32,6 +32,13 @@
     width: 100%;
     height: 100%;
     border-radius: 40px;
+
+
+    
+    /* !!! FROM RUMEN !!! */
+    min-height: 200px;
+    max-height: 200px;
+    overflow: scroll;
   }
   
   /* Hover/focus effect for link */

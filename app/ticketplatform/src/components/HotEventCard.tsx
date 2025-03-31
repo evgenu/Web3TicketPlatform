@@ -16,10 +16,6 @@ function HotEventCard(props: HotEventCardProps) {
         <>
                 <div className={hotEventCard["wrapper"]}>
                     <Link to={`/event/${props.id}`} state={{ id: props.id }} className={hotEventCard["card-link"]}> 
-                        <div className={hotEventCard["card-image"]}>
-                            <img alt
-                            ="Elrow" className={hotEventCard["card-img"]} />
-                        </div>
 
                         <div className={hotEventCard["card-content"]}>
                             <h3 className={hotEventCard["card-title"]}>{props.name}</h3>
