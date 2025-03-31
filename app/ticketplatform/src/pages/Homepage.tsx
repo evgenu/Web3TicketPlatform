@@ -89,11 +89,11 @@ function Homepage() {
 
     const hotEvents = eventList.eventList
         .filter(event =>
-            Number(event.date) > Math.floor(Date.now() / 1000) && 
+            Number(event.date) > Math.floor(Date.now() / 1000) &&
             event.ticketSold < event.ticketCount
         )
-        .sort((a, b) => Number(a.date) - Number(b.date)) 
-        .slice(0, 10); 
+        .sort((a, b) => Number(a.date) - Number(b.date))
+        .slice(0, 10);
 
     return (
         <>
@@ -137,9 +137,9 @@ function Homepage() {
                 {hotEvents.map((event, index) => (
                     <HotEventCard
                         key={index}
-                        id={index + 1} 
+                        id={index + 1}
                         name={event.name}
-                        date={Number(event.date)} 
+                        date={Number(event.date)}
                         description={event.description}
                     />
                 ))}
