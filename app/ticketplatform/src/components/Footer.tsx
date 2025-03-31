@@ -42,7 +42,7 @@ const Footer = () => {
 					<div className={footerStyles['card-footer']}>
 						<h3 className={footerStyles['card-footer-h3']}>Browse</h3>
 						<hr className={footerStyles["hor-line"]}></hr>
-						<ul>
+						<ul className={footerStyles["card-footer-ul"]}>
 							<li className={footerStyles["footer-list"]}>
 								<Link className={footerStyles["footer-links"]} to="/">
 									Home
@@ -69,22 +69,10 @@ const Footer = () => {
 								</Link>
 							</li>
 						</ul>
-					</div>
-
-					<div className={footerStyles['card-footer']}>
-						<h3 className={footerStyles['card-footer-h3']}>Account</h3>
-						<hr className={footerStyles["hor-line"]}></hr>
-						<ul>
-							<li className={footerStyles["footer-list"]}>
-								<Link className={footerStyles["footer-links"]} to="/wallet">
-									Connect Wallet
-								</Link>
-							</li>
-						</ul>
-
+            
 						<h3 className={footerStyles['card-footer-h3']}>Other</h3>
 						<hr className={footerStyles["hor-line"]}></hr>
-						<ul>
+						<ul className={footerStyles["card-footer-ul"]}>
 							<li className={footerStyles["footer-list"]}>
 								<Link className={footerStyles["footer-links"]} to="/faq">
 									FAQ

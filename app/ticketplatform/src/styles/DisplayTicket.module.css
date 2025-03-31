@@ -21,8 +21,6 @@
 	max-height: 200px;
 	min-height: 200px;
 
-	overflow: scroll;
-
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -56,6 +54,12 @@
 
 .card-ticket-description {
 	color: hsl(0, 0%, 100%);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3; /* максимум 3 реда */
+	line-clamp: 3; /* standard property for compatibility */
+  	-webkit-box-orient: vertical;
 }
 
 .ticket-logo {

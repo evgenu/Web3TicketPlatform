@@ -7,7 +7,7 @@
 .footer-components {
 	display: flex;
 	justify-content: center;
-	gap: 10px;
+	gap: 20px;
 	justify-content: center;
 }
 
@@ -19,7 +19,6 @@
 	text-align: left;
 	width: 300px;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
-
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
@@ -55,12 +54,12 @@
 	list-style: none;
 	margin: 10px 0;
 	padding: 5px 0;
+
 }
 
 .footer-list:hover {
 	background: none;
 }
-
 
 .footer-links {
 	font-size: 16px;
@@ -97,27 +96,27 @@
 
 .hor-line {
 	border: 1px solid hsl(207, 89%, 68%);
-	width: 70%;
-	display: block;
-	margin-top: 5px;
-	margin-bottom: 10px;
-	margin-left: 15%;
+    width: 70%;
+    display: block; 
+    margin-top: 5px;   
+    margin-bottom: 10px; 
+    margin-left: 15%;
 }
 
-@media (max-width: 1021px) {
-	.footer-components {
+
+@media (max-width: 1025px) {
+	.footer-components{
 		flex-wrap: wrap;
-	}
-}
-
-@media (max-width: 789px) {
-	.footer-container {
-		padding: 20px;
 		flex-direction: column;
+	}
+  
+	.footer-container {
+		padding: 20px; 
+		flex-direction: column; 
 	}
 
 	.card-footer {
-		width: 80%;
+		width: 80%;  
 		margin: 10px auto;
 	}
 
@@ -126,14 +125,20 @@
 		margin-left: 5%;
 		margin-right: 5%;
 		font-size: 1.5em;
-	}
 
+		text-align: center;
+	}
 	.card-footer-img {
-		margin-left: 0;
+		width: 80px; 
+		height: 80px;
 	}
 
 	.footer-links {
 		font-size: 1.4em;
+
+		margin-left: 0;      
+  		display: inline-block;
+  		text-align: center;
 	}
 
 	.copy-text {
@@ -141,11 +146,31 @@
 		margin-left: 5%;
 		margin-right: 5%;
 	}
-}
 
+	.footer-list {
+		text-align: center; 
+		margin-left: 0;      
+		padding-left: 0;
+	  }
+	
+	.card-footer-ul {
+		padding-left: 0;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.company-info-img {
+		width: 150px;
+		height: 150px;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	  }
+  }
+   
 @media (max-width: 480px) {
 	.card-footer {
-		width: 90%;
+		width: 90%; 
 	}
 
 	.card-footer-h3 {
