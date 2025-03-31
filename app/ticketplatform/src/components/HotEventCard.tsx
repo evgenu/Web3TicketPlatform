@@ -20,7 +20,7 @@ function HotEventCard(props: HotEventCardProps) {
                         <div className={hotEventCard["card-content"]}>
                             <h3 className={hotEventCard["card-title"]}>{props.name}</h3>
                             <p className={hotEventCard["card-date"]}>{new Date(Number(props.date) * 1000).toLocaleDateString()}</p>
-                            <p className={hotEventCard["card-date"]}>{props.description}</p>
+                            <p className={hotEventCard["card-description"]}>{props.description}</p>
                         </div>
                     </Link>
                 </div>

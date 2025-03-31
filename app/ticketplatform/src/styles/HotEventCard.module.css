@@ -1,72 +1,77 @@
+/* Обвивка */
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
   width: 100%;
-  max-width: 250px;
-  margin: auto;
-
-  background-color: white;
-  border-radius: 40px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
-}
-
-.wrapper:hover {
-  transform: scale(1.05);
+  height: 100%;
 }
 
 .card-link {
+  width: 100%; /* важно! */
+  height: 240px;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: var(--hot-event-card-color);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-decoration: none;
-  color: inherit;
-  width: 100%;
-  height: 100%;
-  border-radius: 40px;
-
-  min-height: 200px;
-  max-height: 200px;
+  box-sizing: border-box;
 }
 
-.card-link:hover,
-.card-link:focus {
-  background: hsla(0, 2%, 56%, 0.353);
+.card-link:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
-.card-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 18px 0 5px 0;
-  width: 100%;
-}
-
-.card-img {
-  width: 90%;
-  height: auto;
-  object-fit: contain;
-  border-radius: 10%;
-}
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 0 20px 0;
-}
 
 .card-title {
-  font-size: 1.3rem;
+  color: white;
+  font-size: var(--text-2xl);
   font-weight: bold;
-  margin: 0.5rem 0 0.25rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
-.card-date,
-.card-location {
-  font-size: 1.1rem;
-  margin: 0.25rem 0;
-  font-weight: normal;
+.card-date {
+  color: white;
+  font-size: var(--text-lg);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  color: white;
+  font-size: var(--text-base);
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* максимум 3 реда */
+  -webkit-box-orient: vertical;
+}
+
+@media (max-width: 600px) {
+  .card-link {
+    width: 50vw;
+    max-width: 320px;
+    min-width: 260px;
+    height: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .card-link {
+    width: 90vw;
+    max-width: 330px;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .card-link {
+    width: 95vw;
+    max-width: 300px;
+    padding: 0.8rem;
+  }
 }
