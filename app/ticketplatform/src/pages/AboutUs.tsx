@@ -80,7 +80,7 @@ function AboutUs() {
             Built by engineers who believe in Web3’s potential to transform industries.</li>
         </ul>
 
-        <a href="https://chatgpt.com/" className={aboutStyles["call-to-action-button"]}>Join Us Today</a>
+        <Link to="/contactUs" className={aboutStyles["call-to-action-button"]}>Contact the team</Link>
 
         <p className={aboutStyles["about-paragraph"]}>Join us in shaping the future of ticketing with Web3. Experience the power of decentralization with <strong className={aboutStyles["about_strong"]}>TicketChain.bg</strong> today!</p>
       </div>

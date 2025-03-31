@@ -4,6 +4,10 @@
 	background: #E3F2FD;
 }
 
+.faq-heading{
+	margin-bottom: 60px;
+}
+
 .faq-components{
 	display: flex;
 	width: 100%;
@@ -25,7 +29,7 @@
   }
 
 .card-faq-question:hover{
-	background: #BBDEFB ;
+	background-color: var(--button-hover-color)
 }
 
 .card-faq-answer {
@@ -60,5 +64,5 @@
 }
 
 .faq-button:hover {
-	background: #BBDEFB ;
-  }
+	background-color: var(--button-hover-color)
+}

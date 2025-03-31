@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function FAQ() {
   return (
 	<div className={FAQstyles['faq-container']}>
-		<h1>Frequently Asked Questions</h1>
+		<h1 className={FAQstyles['faq-heading']}>Frequently Asked Questions</h1>
 		<div className={FAQstyles['faq-components']}>
 			<div className={FAQstyles['card-faq-question']}>
 				<h1>Q: When did you start this company?</h1>

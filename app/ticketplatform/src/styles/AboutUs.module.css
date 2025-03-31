@@ -109,6 +109,7 @@
   padding: 12px;
   border-radius: 5px;
   transition: 0.3s;
+  text-align: left;
 }
 
 .ul-list-items:hover {
@@ -136,8 +137,9 @@
 }
 
 .call-to-action-button:hover {
-  background: #BBDEFB ;
+  background-color: var(--button-hover-color);
 }
+
 
 .about-link-styles
 {
