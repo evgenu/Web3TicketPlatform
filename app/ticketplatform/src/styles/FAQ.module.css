@@ -8,7 +8,7 @@
 	margin-bottom: 60px;
 }
 
-.faq-components{
+.faq-components {
 	display: flex;
 	width: 100%;
 	justify-content: center;
@@ -21,12 +21,12 @@
 	background-color: #64B5F6;
 	color: white;
 	padding: 20px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	text-align: left;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 	margin-bottom: 10px;
-  }
+}
 
 .card-faq-question:hover{
 	background-color: var(--button-hover-color)
@@ -36,7 +36,7 @@
 	background-color: #90CAF9;
 	color: white;
 	padding: 20px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	text-align: left;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 	font-size: 0.8em;
@@ -44,8 +44,8 @@
 	margin-bottom: 20px;
 }
 
-.card-faq-answer:hover{
-	background: #BBDEFB ;
+.card-faq-answer:hover {
+	background: #BBDEFB;
 
 }
 

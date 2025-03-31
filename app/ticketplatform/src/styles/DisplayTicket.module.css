@@ -1,9 +1,8 @@
-.card-ticket-display{ 
-	display: flex; 
-	/* justify-content: center;  */
+.card-ticket-display {
+	display: flex;
 	gap: 30px;
 	margin-left: 30px;
-	margin-bottom: 30px; 
+	margin-bottom: 30px;
 
 	width: 100%;
 	max-width: 300px;
@@ -11,15 +10,13 @@
 
 .card-ticket {
 	background-color: hsl(207, 90%, 77%);
-	/* padding: 20px; */
 	border-radius: 50px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	text-align: center;
 	width: 100%;
 
-	/* Provide enough space so that the icon is fully inside */
-	padding-top: 3rem;  
-	padding-bottom: 1.5rem; 
+	padding-top: 3rem;
+	padding-bottom: 1.5rem;
 
 	max-height: 200px;
 	min-height: 200px;
@@ -32,19 +29,18 @@
 	background-color: hsl(207, 89%, 86%);
 }
 
-.card-ticket:hover h3{
+.card-ticket:hover h3 {
 	color: #42A5F5;
 }
 
 
-.card-ticket:hover p{
+.card-ticket:hover p {
 	color: #42A5F5;
 }
 
 .card-ticket-h3 {
 	font-size: 1.3em;
 	color: hsl(0, 0%, 100%);
-	/* transition: color 0.3s ease; */
 	margin-bottom: 5%;
 }
 
@@ -56,7 +52,7 @@
 	margin-right: 15%;
 }
 
-.card-ticket-description{
+.card-ticket-description {
 	color: hsl(0, 0%, 100%);
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -67,7 +63,7 @@
 }
 
 .ticket-logo {
-	font-size: var(--text-sm); /* увеличено, но адаптивно */
+	font-size: var(--text-sm);
 	color: var(--icons-color);
 	transform: translateY(2px);
 	scale: 500%;

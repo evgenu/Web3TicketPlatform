@@ -4,7 +4,7 @@
 	background: #64b5f6;
 }
 
-.footer-components{
+.footer-components {
 	display: flex;
 	justify-content: center;
 	gap: 20px;
@@ -15,15 +15,14 @@
 	background-color: hsl(207, 90%, 77%);
 	padding: 20px;
 	border-radius: 30px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	text-align: left;
 	width: 300px;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-  }
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
 
 .card-footer-h3 {
 	font-size: 1.3em;
@@ -51,22 +50,23 @@
 }
 
 .footer-list {
-    background: none;
+	background: none;
 	list-style: none;
-	margin: 10px 0; 
-    padding: 5px 0; 
+	margin: 10px 0;
+	padding: 5px 0;
+
 }
 
 .footer-list:hover {
-    background: none;
+	background: none;
 }
 
 .footer-links {
-    font-size: 16px;
-    color: hsl(0, 0%, 100%);
-    text-decoration: none;
-    font-weight: 300;
-	margin-left: 10px;
+	font-size: 16px;
+	color: hsl(0, 0%, 100%);
+	text-decoration: none;
+	font-weight: 300;
+	margin-left: 0%;
 }
 
 .footer-links:hover {
@@ -74,7 +74,7 @@
 }
 
 .copy-text {
-    cursor: pointer;
+	cursor: pointer;
 	font-size: 1em;
 	color: hsl(0, 0%, 100%);
 	font-weight: 300;
@@ -86,15 +86,15 @@
 }
 
 .footer-copyright {
-    text-align: center;
-    padding: 10px;
-    color: white;
-    font-size: 0.9rem;
-    margin-top: 20px;
-    width: 100%;
+	text-align: center;
+	padding: 10px;
+	color: white;
+	font-size: 0.9rem;
+	margin-top: 20px;
+	width: 100%;
 }
 
-.hor-line{
+.hor-line {
 	border: 1px solid hsl(207, 89%, 68%);
     width: 70%;
     display: block; 
@@ -109,6 +109,7 @@
 		flex-wrap: wrap;
 		flex-direction: column;
 	}
+  
 	.footer-container {
 		padding: 20px; 
 		flex-direction: column; 
@@ -120,8 +121,7 @@
 	}
 
 	.card-footer-h3,
-	.card-footer-p
-	{
+	.card-footer-p {
 		margin-left: 5%;
 		margin-right: 5%;
 		font-size: 1.5em;
@@ -132,7 +132,8 @@
 		width: 80px; 
 		height: 80px;
 	}
-	.footer-links{
+
+	.footer-links {
 		font-size: 1.4em;
 
 		margin-left: 0;      

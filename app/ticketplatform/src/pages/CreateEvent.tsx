@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { useContract } from '../hooks/contractHook';
 import createEventStyles from '../styles/CreateEvent.module.css';
-
-// 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -46,25 +44,21 @@ const CreateEvent = () => {
 
     const createEvent = async () => {
         if (!contract?.contract) {
-            // 
             toast.error("Contract not loaded")
             return;
         };
 
         const { name, description, date, ticketCount, ticketPrice } = formData;
 
-        // 
         if (!name.trim() || !description.trim() || !date.trim() || !ticketCount.trim() || !ticketPrice.trim()) {
             toast.error('Please fill all fields before creating an event');
             return;
         }
 
-        // Convert input date to a timestamp
         const dateMs = Date.parse(date);
         const dateSeconds = Math.floor(dateMs / 1000);
         const currentDateMs = new Date().getTime();
 
-        // Validate date is not in the past
         if (dateMs < currentDateMs) {
             toast.error('Event date cannot be in the past');
             return;
@@ -81,7 +75,6 @@ const CreateEvent = () => {
             );
             toast.success('Event created successfully!');
 
-            // Clear the form inputs after successful creation
             setFormData({
                 name: '',
                 description: '',
@@ -99,9 +92,7 @@ const CreateEvent = () => {
         }
     };
 
-    // Prepare minDate to ensure user can't pick a date in the past
     const minDate = new Date().toISOString().split('T')[0];
-
 
     return (
         <>
@@ -153,7 +144,6 @@ const CreateEvent = () => {
 
                 <button className={createEventStyles["create-button"]} onClick={createEvent}>Create Event</button>
             </div>
-            {/* 6. Include the ToastContainer so toast notifications can appear */}
         </>
     );
 

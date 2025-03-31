@@ -69,6 +69,7 @@ const Footer = () => {
 								</Link>
 							</li>
 						</ul>
+            
 						<h3 className={footerStyles['card-footer-h3']}>Other</h3>
 						<hr className={footerStyles["hor-line"]}></hr>
 						<ul className={footerStyles["card-footer-ul"]}>

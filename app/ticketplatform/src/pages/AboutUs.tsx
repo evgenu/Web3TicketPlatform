@@ -10,56 +10,56 @@ function AboutUs() {
         <h1 className={aboutStyles['about-container-h1']}><strong className={aboutStyles["about_strong"]}>About Us</strong></h1>
         <h2> Who We Are </h2>
         <p className={aboutStyles['about-container-p']}>We are a team of
-           <strong className={aboutStyles["about-strong"]}> five passionate software engineers </strong>
-            with a shared vision of revolutionizing the ticketing industry. By leveraging blockchain and smart contract technology, we provide a trustless,
-             fraud-proof, and user-centric experience for event organizers and customers alike.
+          <strong className={aboutStyles["about-strong"]}> five passionate software engineers </strong>
+          with a shared vision of revolutionizing the ticketing industry. By leveraging blockchain and smart contract technology, we provide a trustless,
+          fraud-proof, and user-centric experience for event organizers and customers alike.
         </p>
-        
+
         <div className={aboutStyles.team}>
-          
+
           <div className={aboutStyles['team-member']}>
-          <Link to="/contactUs" className={aboutStyles["about-link-styles"]}>
-            <h3 className={aboutStyles['team-member-h3']}>Rumen Kalchev</h3>
-            <p className={aboutStyles['team-member-p']}><br></br>MEMBER</p>
-          </Link>
+            <Link to="/contactUs" className={aboutStyles["about-link-styles"]}>
+              <h3 className={aboutStyles['team-member-h3']}>Rumen Kalchev</h3>
+              <p className={aboutStyles['team-member-p']}><br></br>MEMBER</p>
+            </Link>
           </div>
 
           <div className={aboutStyles['team-member']}>
-          <Link to="/contactUs" className={aboutStyles["about-link-styles"]}>
-            <h3 className={aboutStyles['team-member-h3']}>Georgi Stoev</h3>
-            <p className={aboutStyles['team-member-p']}><br></br>MEMBER</p>
-          </Link>
+            <Link to="/contactUs" className={aboutStyles["about-link-styles"]}>
+              <h3 className={aboutStyles['team-member-h3']}>Georgi Stoev</h3>
+              <p className={aboutStyles['team-member-p']}><br></br>MEMBER</p>
+            </Link>
           </div>
 
           <div className={aboutStyles['team-member']}>
-          <Link to="/contactUs" className={aboutStyles["about-link-styles"]}>
-            <h3 className={aboutStyles['team-member-h3']}>Ivan Andonov</h3>
-            <p className={aboutStyles['team-member-p']}><br></br>MEMBER</p>
-          </Link>
+            <Link to="/contactUs" className={aboutStyles["about-link-styles"]}>
+              <h3 className={aboutStyles['team-member-h3']}>Ivan Andonov</h3>
+              <p className={aboutStyles['team-member-p']}><br></br>MEMBER</p>
+            </Link>
           </div>
 
 
           <div className={aboutStyles['team-member']}>
-          <Link to="/contactUs" className={aboutStyles["about-link-styles"]}>
-            <h3 className={aboutStyles['team-member-h3']}>Evgeni Atanasov</h3>
-            <p className={aboutStyles['team-member-p']}><br></br>MEMBER</p>
-          </Link>
+            <Link to="/contactUs" className={aboutStyles["about-link-styles"]}>
+              <h3 className={aboutStyles['team-member-h3']}>Evgeni Atanasov</h3>
+              <p className={aboutStyles['team-member-p']}><br></br>MEMBER</p>
+            </Link>
           </div>
 
           <div className={aboutStyles['team-member']}>
-          <Link to="/contactUs" className={aboutStyles["about-link-styles"]}>
-            <h3 className={aboutStyles['team-member-h3']}>Valeri Mirchevski</h3>
-            <p className={aboutStyles['team-member-p']}><br></br>MEMBER</p>
-          </Link>
+            <Link to="/contactUs" className={aboutStyles["about-link-styles"]}>
+              <h3 className={aboutStyles['team-member-h3']}>Valeri Mirchevski</h3>
+              <p className={aboutStyles['team-member-p']}><br></br>MEMBER</p>
+            </Link>
           </div>
 
-        </div>  
+        </div>
 
         <h2>Our Mission</h2>
-        <p className={aboutStyles["about-paragraph"]}>Our mission is to redefine 
+        <p className={aboutStyles["about-paragraph"]}>Our mission is to redefine
           ticket management through <strong className={aboutStyles['about-strong']}>decentralization,
-          security, and efficiency</strong>.
-           We believe in empowering users with full ownership of their tickets while eliminating issues like scalping, counterfeit tickets, and middleman fees.</p>
+            security, and efficiency</strong>.
+          We believe in empowering users with full ownership of their tickets while eliminating issues like scalping, counterfeit tickets, and middleman fees.</p>
 
         <h2>What We Offer</h2>
         <ul className={aboutStyles["unordered_list_about"]}>

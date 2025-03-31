@@ -1,87 +1,68 @@
 .about-container {
-	text-align: center;
-	padding: 50px;
-	background-color: #E3F2FD; 
+  text-align: center;
+  padding: 50px;
+  background-color: #E3F2FD;
 }
-  
-/* Heading */
+
 .about-container-h1 {
-	font-size: 2.5em;
+  font-size: 2.5em;
   color: #333;
 }
-  
-/* Paragraph */
+
 .about-container-p {
-	font-size: 1.2em;
-	color: #000000;
-	margin-bottom: 30px;
+  font-size: 1.2em;
+  color: #000000;
+  margin-bottom: 30px;
 }
-  
-/* Team section */
+
 .team {
-	display: flex;
-	justify-content: center;
-	gap: 30px;
-
-  /*  */
-  /* flex-wrap: wrap; */
-  /*  */
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
-  
-/* Team Member Card */
+
 .team-member {
-	background: white;
-	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	text-align: center;
-	width: 200px;
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-  
-/* Hover effect for Team Member Card */
+
 .team-member:hover {
-	transform: translateY(-10px); /* Moves the card up slightly */
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increases shadow */
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
-  
-  /* Team Member Image */
+
 .team-member-img {
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	margin-bottom: 10px;
-	transition: transform 0.3s ease;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
 }
-  
-/* Hover effect for Image */
+
 .team-member:hover img {
-	transform: scale(1.1); /* Slightly enlarges the image */
+  transform: scale(1.1);
 }
-  
-/* Team Member Name */
+
 .team-member-h3 {
-	font-size: 1.3em;
-	color: #333;
-	transition: color 0.3s ease;
+  font-size: 1.3em;
+  color: #333;
+  transition: color 0.3s ease;
 }
-  
-  /* Hover effect for Name */
-.team-member:hover h3{
-	color: #42A5F5; /* Changes name color to blue */
+
+.team-member:hover h3 {
+  color: #42A5F5;
 }
-  
-  /* Team Member Role */
+
 .team-member-p {
-	font-size: 1em;
-	color: #777;
+  font-size: 1em;
+  color: #777;
 }
-  
- /* //////////////////////////////////////////////////////////////////////////////////////////// */
 
- /* General Page Styling */
-
-/* Main Container */
 .container {
   max-width: 900px;
   margin: 40px auto;
@@ -91,14 +72,12 @@
   border-radius: 10px;
 }
 
-/* Paragraphs */
 .about-paragraph {
   font-size: 1.2em;
   margin-bottom: 20px;
 }
 
-/* Lists */
-.unordered_list_about{
+.unordered_list_about {
   list-style-type: none;
   padding: 0;
 }
@@ -116,12 +95,10 @@
   background: #d5dbdb;
 }
 
-/* Highlighted Text */
 .about-strong {
-  color: #42A5F5 ;
+  color: #42A5F5;
 }
 
-/* Call-to-Action Button */
 .call-to-action-button {
   display: block;
   width: 200px;
@@ -142,30 +119,27 @@
 
 
 .about-link-styles
-{
   text-decoration: none;
 }
 
 @media (max-width: 850px) {
-	.team {
-    flex-wrap: wrap; 
+  .team {
+    flex-wrap: wrap;
   }
 }
 
-/* At medium screen sizes, scale back width and font-size */
 @media (max-width: 768px) {
   .call-to-action-button {
     width: 80%;
-    font-size: 1em;  /* Slightly smaller text */
-    max-width: 300px;  /* Prevent it from growing too large */
+    font-size: 1em;
+    max-width: 300px;
   }
 }
 
-/* On very small screens, let it stretch almost the full width */
 @media (max-width: 480px) {
   .call-to-action-button {
     width: 90%;
     font-size: 0.9em;
-    max-width: 280px;  /* Example: narrower max width if desired */
+    max-width: 280px;
   }
 }
