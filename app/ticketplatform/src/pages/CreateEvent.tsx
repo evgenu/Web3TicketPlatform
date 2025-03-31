@@ -117,13 +117,6 @@ const CreateEvent = () => {
                     onChange={handleChange}
                 />
 
-                <input type="text"
-                    placeholder="Event Description"
-                    name="description"
-                    className={createEventStyles["input-description"]}
-                    value={formData.description}
-                    onChange={handleChange}
-                />
 
                 <input type="date"
                     placeholder="Event Date"
@@ -147,6 +140,14 @@ const CreateEvent = () => {
                     name="ticketPrice"
                     className={createEventStyles["input-price"]}
                     value={formData.ticketPrice}
+                    onChange={handleChange}
+                />
+
+                <textarea
+                    placeholder="Event Description"
+                    name="description"
+                    className={createEventStyles["input-description"]}
+                    value={formData.description}
                     onChange={handleChange}
                 />
 

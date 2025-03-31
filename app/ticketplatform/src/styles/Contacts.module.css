@@ -22,7 +22,6 @@
     color: #666;
   }
   
-  /* Team section */
   .team {
     display: flex;
     justify-content: center;
@@ -30,9 +29,8 @@
     flex-wrap: wrap;
   }
   
-  /* Team Member Card */
   .team-member {
-    background: #bbdefb; /* Light blue background */
+    background: #bbdefb; 
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -46,7 +44,6 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
   
-  /* Team Member Image */
   .team-member img {
     width: 100px;
     height: 100px;
@@ -59,7 +56,6 @@
     transform: scale(1.1);
   }
   
-  /* Team Member Name */
   .team-member h3 {
     font-size: 1.3em;
     color: #333;
@@ -70,7 +66,6 @@
     color: #007bff;
   }
   
-  /* Team Member Image */
   .team-member img {
     width: 100px;
     height: 100px;
@@ -83,7 +78,6 @@
     transform: scale(1.1);
   }
   
-  /* Team Member Name */
   .team-member h3 {
     font-size: 1.3em;
     color: #333;
@@ -94,11 +88,10 @@
     color: #007bff;
   }
   
-  /* Team Member Contact Info */
   .team-member p {
     font-size: 1em;
     color: #777;
-    white-space: nowrap; /* Prevent text from wrapping */
+    white-space: nowrap; 
   }
   
   .copy-btn {
@@ -115,33 +108,31 @@
     color: #0056b3;
     text-decoration: underline;
   }
-  
-  
-  /* Updated CSS for the contact form */
+
   .inquiry-form-container {
-    background: #bbdefb; /* Blue background */
+    background: #bbdefb; 
     padding: 30px;
-    border-radius: 15px; /* Rounded corners */
+    border-radius: 15px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 40px;
     text-align: center;
-    width: 75%; /* Full width as drawn in blue */
-    max-width: 100%; /* Full width */
+    width: 75%; 
+    max-width: 100%; 
     margin-left: auto;
     margin-right: auto;
   }
   
   .inquiry-form-container h2 {
     font-size: 1.8rem;
-    margin-bottom: 50px; /* Increased margin for spacing */
-    color: black; /* White text for contrast */
+    margin-bottom: 50px; 
+    color: black; 
   }
   
   .inquiry-form-container form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    max-width: 600px; /* Wider form */
+    max-width: 600px; 
     margin: auto;
   }
   
@@ -152,28 +143,28 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 100%;
-    background: white; /* White background for input fields */
+    background: white; 
   }
   
   .inquiry-form-container textarea {
-    height: 120px; /* Slightly taller textarea */
+    height: 120px; 
     resize: none;
   }
   
   .inquiry-form-container button {
-    background: white; /* White background for button */
-    color: #42A5F5; /* Blue text for button */
+    background: var(--button-color); 
+    color: white; 
     border: none;
-    padding: 8px 16px; /* Smaller button */
-    font-size: 1rem; /* Smaller font size */
+    padding: 8px 16px
+    font-size: 1rem; 
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease;
-    width: auto; /* Auto width for smaller button */
-    margin: 0 auto; /* Center the button */
+    width: auto; 
+    margin: 0 auto; 
   }
   
   .inquiry-form-container button:hover {
-    background: hsl(207, 89%, 86%); /* Light grey background on hover */
+    background: var(--button-hover-color);
   }
   

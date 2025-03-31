@@ -38,11 +38,11 @@ const Contacts: React.FC = () => {
     e.preventDefault();
 
     emailjs.send('service_j6wfihv', 'template_ssgbp0v', formData as Record<string, unknown>, 'gAxHctz8kA_3amp8a')
-      .then((result: {text: string}) => {
+      .then((result: { text: string }) => {
         alert('Your inquiry has been submitted!');
         console.log(result.text);
         setFormData({ name: '', email: '', phone: '', message: '' });
-      }, (error: {text: string}) => {
+      }, (error: { text: string }) => {
         console.error('Failed to send email:', error.text);
       });
   };
@@ -56,22 +56,22 @@ const Contacts: React.FC = () => {
   ];
 
   return (
-    <div className={contactStyles["contact-container"]}>  
+    <div className={contactStyles["contact-container"]}>
       <h1>Got questions? Contact Us 📞✨</h1>
       <p>Have questions or need assistance? Our team is here to help!</p>
-      
+
       <div className={contactStyles["team"]}>
         {teamMembers.map((member, index) => (
           <div key={index} className={contactStyles["team-member"]}>
             <h3>{member.name}</h3>
             <p>
-              Email: 
+              Email:
               <button className={contactStyles["copy-btn"]} onClick={() => copyToClipboard(member.email)}>
                 {member.email}
               </button>
             </p>
             <p>
-              Phone: 
+              Phone:
               <button className={contactStyles["copy-btn"]} onClick={() => copyToClipboard(member.phone)}>
                 {member.phone}
               </button>
@@ -79,7 +79,7 @@ const Contacts: React.FC = () => {
           </div>
         ))}
       </div>
-      
+
       {/* Inquiry Form */}
       <div className={contactStyles["inquiry-form-container"]}>
         <h2>Or ask us directly</h2>
