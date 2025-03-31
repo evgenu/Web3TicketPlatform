@@ -51,7 +51,7 @@ const EventList = () => {
                         key={i}
                         id={i + 1}
                         name={event.name}
-                        date={event.date.toString()}
+                        date={event.date}
                         description={event.description}
                     />
                 ))}

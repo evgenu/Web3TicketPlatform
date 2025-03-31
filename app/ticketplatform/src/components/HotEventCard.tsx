@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 interface HotEventCardProps {
     id: number;
     name: string;
-    date: string;
+    date: number;
     description: string;
 }
 
