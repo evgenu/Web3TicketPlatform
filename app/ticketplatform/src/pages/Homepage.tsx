@@ -33,12 +33,12 @@ function Homepage() {
         try {
             while (true) {
                 const event = contract ? await contract.getEventDetails(i) : null;
-                if (!event || event.name === '') break; 
+                if (!event || event.name === '') break;
                 upcomingEvents.push(event);
                 i++;
             }
 
-            eventList.setEventList(upcomingEvents); 
+            eventList.setEventList(upcomingEvents);
         } catch (error) {
             console.error("Error loading events:", error);
             toast.error("Failed to load events. Please try again later.", { toastId: "failed-loading-events" });
@@ -106,8 +106,8 @@ function Homepage() {
                             .map((event, index) => (event.date > Math.floor(Date.now() / 1000) && event.ticketSold < event.ticketCount) && (
                                 <li key={index} className={homepageStyles["content-list"]}>
                                     <Link
-                                        to={`/event/${index + 1}`} // Pass the event index or ID in the URL
-                                        state={{ id: index }} // Pass the ID via state
+                                        to={`/event/${index + 1}`}
+                                        state={{ id: index }}
                                         className={homepageStyles["content-link"]}
                                     >
                                         {event.name}

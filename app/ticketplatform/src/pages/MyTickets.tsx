@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import profileStyles from '../styles/ProfileTickets.module.css';
-import { Link } from "react-router-dom";
 import { useContract } from '../hooks/contractHook';
 import { useUser } from '../hooks/userHook';
 import DisplayTicket from '../components/DisplayTicket';
@@ -43,8 +41,7 @@ function MyTickets() {
                 });
             }
 
-            // Separate tickets into upcoming and past
-            const currentTimestamp = Math.floor(Date.now() / 1000); // Current time in seconds
+            const currentTimestamp = Math.floor(Date.now() / 1000);
             const upcoming = userTickets.filter(ticket => ticket.eventDate >= currentTimestamp);
             const past = userTickets.filter(ticket => ticket.eventDate < currentTimestamp);
 
@@ -64,7 +61,6 @@ function MyTickets() {
         <div>
             <h1 className={myTicketsStyles["main-heading-page-ticket"]}>My Tickets</h1>
 
-            {/* Upcoming Events Section */}
             <h2 className={myTicketsStyles["second-heading-page-ticket"]}>Upcoming Events</h2>
             {upcomingTickets.length === 0 ? (
                 <p className={myTicketsStyles["paragraph-page-ticket"]}>You have no upcoming tickets.</p>
@@ -81,7 +77,6 @@ function MyTickets() {
                 </div>
             )}
 
-            {/* Past Events Section */}
             <h2 className={myTicketsStyles["second-heading-page-ticket"]}>Past Events</h2>
             {pastTickets.length === 0 ? (
                 <p className={myTicketsStyles["paragraph-page-ticket"]}>You have no past tickets.</p>

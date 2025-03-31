@@ -14,16 +14,16 @@ function HotEventCard(props: HotEventCardProps) {
 
     return (
         <>
-                <div className={hotEventCard["wrapper"]}>
-                    <Link to={`/event/${props.id}`} state={{ id: props.id }} className={hotEventCard["card-link"]}> 
+            <div className={hotEventCard["wrapper"]}>
+                <Link to={`/event/${props.id}`} state={{ id: props.id }} className={hotEventCard["card-link"]}>
 
-                        <div className={hotEventCard["card-content"]}>
-                            <h3 className={hotEventCard["card-title"]}>{props.name}</h3>
-                            <p className={hotEventCard["card-date"]}>{new Date(Number(props.date) * 1000).toLocaleDateString()}</p>
-                            <p className={hotEventCard["card-description"]}>{props.description}</p>
-                        </div>
-                    </Link>
-                </div>
+                    <div className={hotEventCard["card-content"]}>
+                        <h3 className={hotEventCard["card-title"]}>{props.name}</h3>
+                        <p className={hotEventCard["card-date"]}>{new Date(Number(props.date) * 1000).toLocaleDateString()}</p>
+                        <p className={hotEventCard["card-description"]}>{props.description}</p>
+                    </div>
+                </Link>
+            </div>
         </>
     );
 }

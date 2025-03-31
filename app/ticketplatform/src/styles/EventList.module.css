@@ -1,16 +1,16 @@
 .hot-events-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    justify-items: center;
-    gap: 1.5rem;
-    padding: 2rem 1rem;
-    max-width: 1400px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 @media (max-width: 600px) {
-    .hot-events-container {
-      grid-template-columns: 1fr;
-      justify-items: center;
-    }
+  .hot-events-container {
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
+}
