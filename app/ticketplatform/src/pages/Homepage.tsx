@@ -4,6 +4,8 @@ import { useContract } from "../hooks/contractHook";
 import { Link } from "react-router-dom";
 import { useEventList } from "../hooks/eventListHook";
 import { toast } from "react-toastify";
+import HotEventCard from "../components/HotEventCard";
+import eventListStyles from "../styles/EventList.module.css";
 
 interface Event {
     name: string;
@@ -85,7 +87,13 @@ function Homepage() {
         };
     }, []);
 
-
+    const hotEvents = eventList.eventList
+        .filter(event =>
+            Number(event.date) > Math.floor(Date.now() / 1000) && 
+            event.ticketSold < event.ticketCount
+        )
+        .sort((a, b) => Number(a.date) - Number(b.date)) 
+        .slice(0, 10); 
 
     return (
         <>
@@ -121,6 +129,20 @@ function Homepage() {
                             )}
                     </div>
                 )}
+            </div>
+
+            <h2 className={homepageStyles["hot-events-tittle"]}>Hot Events</h2>
+
+            <div className={eventListStyles["hot-events-container"]}>
+                {hotEvents.map((event, index) => (
+                    <HotEventCard
+                        key={index}
+                        id={index + 1} 
+                        name={event.name}
+                        date={Number(event.date)} 
+                        description={event.description}
+                    />
+                ))}
             </div>
         </>
     )
