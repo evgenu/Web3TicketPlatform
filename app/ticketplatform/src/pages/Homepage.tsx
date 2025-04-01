@@ -86,7 +86,7 @@ function Homepage() {
             document.removeEventListener("click", handleClickOutside);
         };
     }, []);
-
+    
     const hotEvents = eventList.eventList
         .filter(event =>
             Number(event.date) > Math.floor(Date.now() / 1000) && 
@@ -134,10 +134,10 @@ function Homepage() {
             <h2 className={homepageStyles["hot-events-tittle"]}>Hot Events</h2>
 
             <div className={eventListStyles["hot-events-container"]}>
-                {hotEvents.map((event, index) => (
+                {hotEvents.map((event, index) => (event.date > Math.floor(Date.now() / 1000) && event.ticketSold < event.ticketCount) && (
                     <HotEventCard
                         key={index}
-                        id={index + 1} 
+                        id={eventList.eventList.indexOf(event) + 1} 
                         name={event.name}
                         date={Number(event.date)} 
                         description={event.description}
