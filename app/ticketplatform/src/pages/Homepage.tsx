@@ -114,7 +114,7 @@ function Homepage() {
                             .map((event, index) => (event.date > Math.floor(Date.now() / 1000) && event.ticketSold < event.ticketCount) && (
                                 <li key={index} className={homepageStyles["content-list"]}>
                                     <Link
-                                        to={`/event/${index + 1}`}
+                                        to={`/event/${eventList.eventList.indexOf(event) + 1}`}
                                         state={{ id: index }}
                                         className={homepageStyles["content-link"]}
                                     >
